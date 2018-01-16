@@ -26,6 +26,8 @@
 diff.tex
 #Chapters/diff.tex
 
+Literature/
+
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
