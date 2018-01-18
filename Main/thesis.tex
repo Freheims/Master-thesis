@@ -15,6 +15,10 @@
 
 %%===================================
 \begin{document}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+
+
 %\subfile{../Front/front} % This is the titlepage
 \pagenumbering{roman}
 \setcounter{page}{2}
@@ -42,7 +46,7 @@
 \subfile{../Chapters/chapter08}
 % Include more chapters as required.
 %%=========================================
-\bibliographystyle{apa}
+\bibliographystyle{chicago}
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliography{../library}  
 \blankpage
