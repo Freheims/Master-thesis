@@ -1,0 +1,1 @@
+Why did I choose Go? Because it was easier to get started. No need to worry about authentication in the beginning, but it is still easy to add later.
