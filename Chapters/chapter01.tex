@@ -1,4 +1,4 @@
-% !TEX encoding = UTF-8 Unicode
+%!TEX encoding = UTF-8 Unicode
 %!TEX root = ../Main/thesis.tex
 % !TEX spellcheck = en-US
 %%=========================================
@@ -7,21 +7,45 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
-The organizations Uni Research Health, Centre for the Science of Learning \& Technology (SLATE), Western Norway University of Applied Sciences (HVL), ENOVATE AS and Øygarden Brann og Redning (Øygarden fire and rescue) are currently cooperating on the project ``Inquire Competence for Better Practice and Assessment'' (iComPAss).
-This project does, among other things, study how one could use data driven decision-making to improve the training of firefighters.
-As a part of that study they want to research how and if Bluetooth or similar technologies could be used to track the movements of firefighters when they exercise smoke diving.
+%The organizations Uni Research Health, Centre for the Science of Learning \& Technology (SLATE), Western Norway University of Applied Sciences (HVL), ENOVATE AS and Øygarden Brann og Redning (Øygarden fire and rescue) are currently cooperating on the project ``Inquire Competence for Better Practice and Assessment'' (iComPAss).
+%This project does, among other things, study how one could use data driven decision-making to improve the training of firefighters.
+%As a part of that study they want to research how and if Bluetooth or similar technologies could be used to track the movements of firefighters when they exercise smoke diving.
  
-Today we have pretty good systems for outdoor localization, positioning and tracking using the Global Positioning System (GPS). 
-GPS is available almost everywhere and because most smartphones has a GPS-antenna it is easy to use it in your own application. 
+Today we have pretty accurate systems for outdoor localization, positioning and tracking using the Global Positioning System (GPS). 
+GPS is available almost everywhere and because most smartphones has a GPS-antenna it is easy to use it in your own application. \todo{Find sources}
 Unfortunately GPS does not work well enough indoors when you need precise locations.
 There are however developed several other projects for indoor localization and tracking using different technologies such as light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, WIFI  \citep{chang2010robust} and Bluetooth \todo{Find reference}, but none of those systems are commonly available or in widespread use yet.
 
+One use-case where precise indoor tracking might be useful is when firefighters exercise smoke diving. 
+As the building they exercise in is filled with smoke the visibility is low or nonexistent.
+Because of this low visibility it is easy to get disoriented or lose track of where you have been.
+And for a firefighter it is crucial to check all rooms or parts of a building when searching through it.
+Therefore is smoke diving one of the important abilities they exercise.
+But how can you get better at it and learn from your errors if you think you searched all the rooms in the building, and no one is able to tell you that you missed a bedroom?
+
+To saturate this need for information about firefighters movement in a smoke filled building we want to create a system for tracking them while they exercise.
+We want to use Bluetooth Low Energy (BLE) beacons and smartphones to track the firefighters and visualize the data about their movements afterwards so they can use it in the evaluation process after their exercise.
 
 \section{Motivation}
+The motivation for doing this masters project is that there is a need for a tool like this.
+We also want to explore the capabilities of, and learn about the BLE beacons and see how well they perform in an environment like this, which is almost unexplored when it regards use of Bluetooth technology. 
 
 
+\section{Research Questions}
+In my thesis I will look at how well the Bluetooth Low Energy beacons perform in a smoke diving setting and environment. 
+\todo{Find a good description of what I want to do}
 
-\section{Research Question}
+
+\section{Overview of thesis}
+This thesis is divided into eight chapters.
+The first chapter is this introduction.
+The second chapter is an overview of relevant literature and theory.
+In the third chapter I describe the research methodology I am using for the project, and how i use the methods.
+Chapter four is an overview of the technologies we use in the project, and why we chose to use them.
+The fifth chapter describes the development process, including choices we made during development, and why we made those decisions.
+Chapter six is a description of how I evaluated the system.
+In chapter seven I discuss my findings.
+And chapter eight is the conclusion of my masters thesis.
 
 
 
