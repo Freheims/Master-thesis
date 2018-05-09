@@ -7,5 +7,61 @@
 \chapter{Technologies}
 \label{ch:technologies}
 
+Several different technologies have been used for this project, and they can be divided into three main categories depending on what part of the system they belongs to: app, back end, and front end.
+This chapter is an overview of the technologies we used in our project, and an explanation of how and why we used them.
+It will also describe some alternative technologies we could have used.
+The intention is not to give a comprehensive presentation of the technologies, but instead give a brief introduction to support our choices.
 
+\section{Android}
+Android is the most used operating system for smartphones \citep{osmarketshare}. 
+It is developed by google and is based on the Linux kernel.
+Android was initially released in 2005 \citep{Morrill2008a} and the current version is Android 8.1 ``Oreo'' \citep{Burke2017a}.
+
+The alternative to using Android for our project would be to use Apples iOS.
+Since both me and my co-student have experience developing for Android and neither of us have developed for iOS earlier we chose to develop for Android as it would be time-saving to use technology we were already familiar with.
+Another reason for choosing Android is that we both have Android devices available for testing, but only one of us owns an iOS device.
+It is also recommended to use a Mac when developing for iOS, which again we do not have available.
+
+\subsection{Android Beacon Library}
+Android Beacon Library (ABL) is an Android library that allows Android devices to interact with BLE beacons. 
+It simplifies the process of searching for beacons and retrieve information, such as id, name and RSSI from them.
+The library can also be used to listen for beacons in the background \citep{RadiusNetwork2015}.
+We decided to use this library because it is one of few libraries that is actively maintained.
+It is also compatible with several different beacon-standards, and does not require proprietary beacons such as the Estimote SDK \citep{Estimote2017}.
+This is an advantage because we are not limited to using only one beacon manufacturer or beacon type.
+
+\subsection{Retrofit}
+\subsection{Eventbus}
+
+
+\section{Back end}
+\subsection{Gin}
+\subsection{GORM}
+\subsection{SQLite}
+
+
+\section{Front end}
+\subsection{React}
+
+\section{Programming Languages}
+\subsection{Golang}
+\subsection{Java}
+\subsection{JavaScript}
+
+\section{JSON}
+
+\section{REST}
+
+\section{Linux}
+
+
+\section{Alternative Technologies}
+\subsection{Pozyx}
+\subsection{Arduino}
+\subsection{Estimote}
+
+
+
+\onlyinsubfile{\bibliographystyle{chicago}}
+\onlyinsubfile{\bibliography{../library}}
 \end{document}
