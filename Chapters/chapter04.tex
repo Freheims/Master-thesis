@@ -55,9 +55,21 @@ This reduces the amount of code you have to write to use your user interface ele
 Butter Knife also simplifies adding listeners and events to buttons and other elements to make them do something when interacted with \citep{Wharton2018}.
 
 \section{Back end}
+%The purpose of our back end is to 
+\todo{Write about back end in general}
+
 \subsection{Gin}
+Gin is a web framework for Golang for creating HTTP servers.
+It enables us to easily write a simple web server which provides a REST-API that can be used by our Android app and web front end. 
+Using Gin we can specify routes and HTTP request types our server can respond to, with our response \citep{Martinez-Almeida2017}.
 \subsection{GORM}
+Gorm is an Object-relational mapping (ORM) framework written for Golang.
+It enables us to create database models using Golangs native data structures \citep{JInzhuZhang2018}.
+The benefit of using Gorm, or any kind of orm, is that it adds a layer of abstraction over the database management.
+We only have to care about and work with Golang structures and Gorm takes care of creating database queries and building SQL queries for the dialect of SQL we have chosen.
+
 \subsection{SQLite}
+SQLite is a SQL database where the entire database with tables, indices, views and triggers is stored in a single disk file \citep{Hipp2015}.
 
 
 \section{Front end}
