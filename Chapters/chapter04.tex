@@ -22,6 +22,10 @@ Since both me and my co-student have experience developing for Android and neith
 Another reason for choosing Android is that we both have Android devices available for testing, but only one of us owns an iOS device.
 It is also recommended to use a Mac when developing for iOS, which again we do not have available.
 
+There are a great variety of libraries available when developing applications for Android.
+Some of them adds new functionality and some simplifies an existing task.
+We used a few libraries in our app and in the following paragraphs is a description of those.
+
 \subsection{Android Beacon Library}
 Android Beacon Library (ABL) is an Android library that allows Android devices to interact with BLE beacons. 
 It simplifies the process of searching for beacons and retrieve information, such as id, name and RSSI from them.
@@ -31,8 +35,24 @@ It is also compatible with several different beacon-standards, and does not requ
 This is an advantage because we are not limited to using only one beacon manufacturer or beacon type.
 
 \subsection{Retrofit}
-\subsection{Eventbus}
+Retrofit is a type-safe HTTP client for Android and Java \citep{SquareInc.2017}.
+We used this library to handle all our HTTP requests to our back end. 
+It makes it easy to define your API endpoints as an interface in the app and send requests to the endpoint.
+This causes consistency because you use the endpoints in the same way each time you use it, you can not suddenly forget to add a required parameter one place in your code and remember it somewhere else.
+Another benefit is that the code is more reusable, so you do not have to write the same code lines over and over again.
+Retrofit also handles the response from the server and takes care of failures as well.
 
+\subsection{Eventbus}
+Eventbus is a library that makes it easier to send data between activities and threads i Android. 
+It is really simple to use.
+Wherever you want to send some data you post an ``event'' containing your data, and then you listen for the events where you want to use the data \citep{Greenrobot2016}.
+This simplifies the common task of updating GUI-elements with data fetched from a server.
+One of the alternatives to using Eventbus is storing all data you download locally on the device and then read the data from storage again when you want to use it, but that is both slower and more unstable as you can not always be sure that the data is stored before you try to load it. 
+
+\subsection{Butter Knife}
+Butter Knife is a library for binding the user interface objects in the code to the XML representation schema using annotations.
+This reduces the amount of code you have to write to use your user interface elements. 
+Butter Knife also simplifies adding listeners and events to buttons and other elements to make them do something when interacted with \citep{Wharton2018}.
 
 \section{Back end}
 \subsection{Gin}
@@ -53,6 +73,8 @@ This is an advantage because we are not limited to using only one beacon manufac
 \section{REST}
 
 \section{Linux}
+
+\section{Git}
 
 
 \section{Alternative Technologies}
