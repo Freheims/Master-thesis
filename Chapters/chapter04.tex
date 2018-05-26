@@ -22,9 +22,15 @@ Since both me and my co-student have experience developing for Android and neith
 Another reason for choosing Android is that we both have Android devices available for testing, but only one of us owns an iOS device.
 It is also recommended to use a Mac when developing for iOS, which again we do not have available.
 
+If we were to develop this system for commercial use the best choice would be to develop for both Android and iOS.
+But we decided not to do that as we would have used much more time if we were to develop two parallel versions of the app.
+It is also outside the scope of our project.
+
 There are a great variety of libraries available when developing applications for Android.
 Some of them adds new functionality and some simplifies an existing task.
-We used a few libraries in our app and in the following paragraphs is a description of those.
+We used a few libraries in our app and in the following paragraphs is a description of those. %TODO: Skriv om
+
+\subsection{Java}
 
 \subsection{Android Beacon Library}
 Android Beacon Library (ABL) is an Android library that allows Android devices to interact with BLE beacons. 
@@ -55,30 +61,34 @@ This reduces the amount of code you have to write to use your user interface ele
 Butter Knife also simplifies adding listeners and events to buttons and other elements to make them do something when interacted with \citep{Wharton2018}.
 
 \section{Back end}
-%The purpose of our back end is to 
-\todo{Write about back end in general}
+
+\subsection{Go}
+Go is a programming language developed by Google and released in 2012 \citep{Google2018a}.
+It is a statically typed, concurrent and compiled language \citep{Pike2012}.
+Go is often referred to as Golang. 
+The Go project is open source meaning everyone can contribute to the development of the language.
+Lately Go has become a popular choice for developing scalable web services.
+We chose to use Go because we already had some experience using it for developing an REST-API in another project and we wanted to develop our skills with the language.
 
 \subsection{Gin}
-Gin is a web framework for Golang for creating HTTP servers.
+Gin is a web framework for Go for creating HTTP servers.
 It enables us to easily write a simple web server which provides a REST-API that can be used by our Android app and web front end. 
 Using Gin we can specify routes and HTTP request types our server can respond to, with our response \citep{Martinez-Almeida2017}.
 \subsection{GORM}
-Gorm is an Object-relational mapping (ORM) framework written for Golang.
-It enables us to create database models using Golangs native data structures \citep{JInzhuZhang2018}.
+Gorm is an Object-relational mapping (ORM) framework written for Go.
+It enables us to create database models using Gos native data structures \citep{JInzhuZhang2018}.
 The benefit of using Gorm, or any kind of orm, is that it adds a layer of abstraction over the database management.
-We only have to care about and work with Golang structures and Gorm takes care of creating database queries and building SQL queries for the dialect of SQL we have chosen.
+We only have to care about and work with Go structures and Gorm takes care of creating database queries and building SQL queries for the dialect of SQL we have chosen.
 
 \subsection{SQLite}
-SQLite is a SQL database where the entire database with tables, indices, views and triggers is stored in a single disk file \citep{Hipp2015}.
-
+SQLite is a SQL database where the entire database with tables, indices, views and triggers is stored in a single disk file.
+This is easy to use and suitable for smaller applications where a full database back end is not needed \citep{Hipp2015}.
+It makes it easier to test your system as you do not have to set up and connect to a local or remote database.
+The entire database is just a single file which is easy to create, back up or delete when you need to.
 
 \section{Front end}
-\subsection{React}
-
-\section{Programming Languages}
-\subsection{Golang}
-\subsection{Java}
 \subsection{JavaScript}
+\subsection{React}
 
 \section{JSON}
 
