@@ -31,6 +31,12 @@ Some of them adds new functionality and some simplifies an existing task.
 We used a few libraries in our app and in the following paragraphs is a description of those. %TODO: Skriv om
 
 \subsection{Java}
+Java is a programming language developed by Sun Microsystems in 1995 \citep{SunMicrosystems1996}. 
+It is a general-purpose, concurrent, class-based and object-oriented language \citep[p. 1]{Gosling2018}.
+Java code is compiled to bytecode which can run on a Java Virtual Machine (JVM) independent of computer architecture \citep{Venners2000}. 
+Java is the most common language to use when developing applications for Android, which is the main reason behind our choice to use it.
+The other reason is that of the three languages (Java, Kotlin and C++ \citep{Google2018b}) available for developing Android apps, Java is the only one we have prior experience with.
+
 
 \subsection{Android Beacon Library}
 Android Beacon Library (ABL) is an Android library that allows Android devices to interact with BLE beacons. 
@@ -88,22 +94,65 @@ The entire database is just a single file which is easy to create, back up or de
 
 \section{Front end}
 \subsection{JavaScript}
+JavaScript is a programming language released in 1995 \citep{Netscape1995}.
+It is one of the three core technologies used for building web sites, the other two being HTML and CSS.
+JavaScript is a interpreted, high-level, untyped, dynamic programming language \citep{Flanagan2011}.
+As we were making a web-application JavaScript was the natural choice of programming language.
+
 \subsection{React}
+React is a JavaScript library for building user interfaces.
+It is developed by Facebook \citep{FacebookInc.2014}.
+React lets you create views for each state in your application, and when data changes it will update and render only the affected components.
+We chose to use react because we wanted to use this opportunity to learn a new JavaScript framework.
 
-\section{JSON}
+%\section{JSON}
 
-\section{REST}
+%\section{REST}
 
-\section{Linux}
+%\section{Linux}
 
-\section{Git}
+%\section{Git}
 
 
 \section{Alternative Technologies}
-\subsection{Pozyx}
-\subsection{Arduino}
-\subsection{Estimote}
+In many cases there were alternative technologies that we could have used instead of the ones we chose.
+When choosing languages and libraries we often decided based on preference and prior experience, but when we were to decide which tracking technology to use we were more concerned to take an informed choice as this could directly influence the result of our research.
+In the following paragraphs are some relevant technologies listed and our arguments against choosing them.
 
+\subsection{Pozyx}
+A couple of months into our development we were made aware of the ``Pozyx Accurate Positioning'' project.
+Pozyx uses Arduino-based anchors and tags together with ultra-wideband technology to achieve indoor tracking with centimeter precision \citep{Pozyx2017}.
+At a first glance it seemed like exactly what we needed, but when we delved a bit further into this system we found three reasons to not switch to Pozyx:
+\begin{enumerate}
+	\item{Both the anchors and tags needs external power. 
+		The anchors can easily be connected to a power outlet if there are any nearby, but the tags need to be portable so we would have to fit some kind of battery to them.
+		Adding a battery would also make the already large and bulky device larger.
+		See figure~\ref{fig:pozyx_tag}}.
+	\item{When we made the decision of not switching to Pozyx it seemed like the only way to retrieve data from the tags was to physically connect them to another device and extract data.
+		We felt this would be to cumbersome and restrictive.
+		Later we discovered that it is possible to remotely retrieve data via a web-API.}
+	\item{We had already spent several months learning the Android and Bluetooth ecosystem and developing our system.
+		Much of this work would have to be discarded and we would have to start all over with learning a new technology and developing the system once again.
+		We simply did not think there would be enough time for this.}
+\end{enumerate}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{../fig/pozyx_tag}
+	\caption{Picture of Pozyx tag/anchor (Photo: \url{http://pozyx.io})}
+	\label{fig:pozyx_tag}
+\end{figure}
+
+
+\subsection{Arduino}
+In a very early stage we discussed creating our own tracking devices using Arduino boards and soldering and connecting Bluetooth-antennas to them to create a Bluetooth-transmitter.
+We soon discovered that this was a field none of us had any experience with, and it would probably have taken far too much time to develop this solution.
+The probability of us creating a product, in such a short time, that would be comparable to the available off-the-shelf products is also low.
+
+\subsection{Estimote}
+Another popular beacon manufacturer is Estimote who produces a variety of BLE beacons \citep{EstimoteInc.2018}.
+Together with their beacons Estimote also supplies a Software Development Kit (SDK) which theoretically should make it easy to interact with the beacons.
+But when we started our planning and development we were warned against using their beacons and SDK because of the many bugs and instabilities in the SDK, and they even dropped support for their old version of it to create a new one from scratch \citep{Saetre2017}.
 
 
 \onlyinsubfile{\bibliographystyle{chicago}}
