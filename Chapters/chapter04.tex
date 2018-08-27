@@ -12,12 +12,20 @@ This chapter is an overview of the technologies we used in our project, and an e
 It will also describe some alternative technologies we could have used.
 The intention is not to give a comprehensive presentation of the technologies, but instead give a brief introduction to support our choices.
 
-\section{Android}
+\section{Bluetooth Low Energy Beacons}
+
+\subsection{Bluetooth}
+
+\subsection{Bluetooth Low Energy}
+
+\subsection{iBeacon protocol}
+
+\section{Android application}
 Android is the most used operating system for smartphones \citep{osmarketshare}. 
 It is developed by google and is based on the Linux kernel.
 Android was initially released in 2005 \citep{Morrill2008a} and the current version is Android 8.1 ``Oreo'' \citep{Burke2017a}.
 
-The alternative to using Android for our project would be to use Apples iOS.
+The main alternative to using Android for our project would be to use Apples iOS.
 Since both me and my co-student have experience developing for Android and neither of us have developed for iOS earlier we chose to develop for Android as it would be time-saving to use technology we were already familiar with.
 Another reason for choosing Android is that we both have Android devices available for testing, but only one of us owns an iOS device.
 It is also recommended to use a Mac when developing for iOS, which again we do not have available.
@@ -105,35 +113,26 @@ It is developed by Facebook \citep{FacebookInc.2014}.
 React lets you create views for each state in your application, and when data changes it will update and render only the affected components.
 We chose to use react because we wanted to use this opportunity to learn a new JavaScript framework.
 
-%\section{JSON}
-
-%\section{REST}
-
-%\section{Linux}
-
-%\section{Git}
-
-
 \section{Alternative Technologies}
 In many cases there were alternative technologies that we could have used instead of the ones we chose.
 When choosing languages and libraries we often decided based on preference and prior experience, but when we were to decide which tracking technology to use we were more concerned to take an informed choice as this could directly influence the result of our research.
 In the following paragraphs are some relevant technologies listed and our arguments against choosing them.
 
-\subsection{Pozyx}
+\subsection{Pozyx}Pozyx is a platform for accurate indoor positioning.
 A couple of months into our development we were made aware of the ``Pozyx Accurate Positioning'' project.
 Pozyx uses Arduino-based anchors and tags together with ultra-wideband technology to achieve indoor tracking with centimeter precision \citep{Pozyx2017}.
-At a first glance it seemed like exactly what we needed, but when we delved a bit further into this system we found three reasons to not switch to Pozyx:
+At a first glance it seemed like exactly what we needed, but when we delved a bit further into this system we made two observations that would have a negative effect on usability.
 \begin{enumerate}
 	\item{Both the anchors and tags needs external power. 
-		The anchors can easily be connected to a power outlet if there are any nearby, but the tags need to be portable so we would have to fit some kind of battery to them.
+		The anchors can easily be connected to a power outlet if there are any nearby, but the tags need to be portable so we would have to attach some kind of battery to them.
 		Adding a battery would also make the already large and bulky device larger.
-		See figure~\ref{fig:pozyx_tag}}.
-	\item{When we made the decision of not switching to Pozyx it seemed like the only way to retrieve data from the tags was to physically connect them to another device and extract data.
+		See figure~\ref{fig:pozyx_tag}.
+		This would be a problem for us because we were going to attach the devices to either the firefighters helmet or oxygen tank, and therefore we wanted it to be small, lightweight and with a minimal risk of hooking onto something.
+	}
+
+	\item{When we first considered Pozyx it seemed like the only way to retrieve data from the tags was to physically connect them to another device and extract data.
 		We felt this would be to cumbersome and restrictive.
 		Later we discovered that it is possible to remotely retrieve data via a web-API.}
-	\item{We had already spent several months learning the Android and Bluetooth ecosystem and developing our system.
-		Much of this work would have to be discarded and we would have to start all over with learning a new technology and developing the system once again.
-		We simply did not think there would be enough time for this.}
 \end{enumerate}
 
 \begin{figure}
