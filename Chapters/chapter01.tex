@@ -11,7 +11,7 @@
 %This project does, among other things, study how one could use data driven decision-making to improve the training of firefighters.
 %As a part of that study they want to research how and if Bluetooth or similar technologies could be used to track the movements of firefighters when they exercise smoke diving.
 
-Today we have pretty accurate systems for outdoor localization, positioning, and tracking using the Global Positioning System (GPS). 
+Today we have accurate systems for outdoor localization, positioning, and tracking using the Global Positioning System (GPS). 
 GPS is available almost everywhere, and because most smartphones have a GPS-antenna it is easy to use in applications.
 Unfortunately, GPS does not work well enough indoors to give precise locations.
 There are, however, several emerging technologies for indoor localization and tracking, such as light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, WIFI  \citep{chang2010robust}, and Bluetooth \citep{Takahashi2016}.
@@ -19,16 +19,20 @@ None of these systems are commonly available or in widespread use yet, however.
 
 One use-case where precise indoor tracking might be useful is for supporting firefighter smoke diving training. 
 As the training building is filled with smoke the visibility is low or nonexistent, thus it is easy to get disoriented or lose track of where you are and where you have been.
+Which is the point of the exercise.
 For a firefighter it is crucial to check all rooms or parts of a building when searching through it, therefore, smoke diving is one of the important abilities they train.
+Smoke diving is also carried out according to competence-based practice, with standards for movement, communication, equipment use, etc.
+Yet, there are few tools that provide the divers with data on their performance.
 How can you get better at it and learn from your errors, however, if you think you searched all the rooms in the building, and no one is able to tell you that you missed a bedroom?
 Did you carry out the search optimally?
+And will visualizations of this improve the instructor - trainee dialogue and feedback.
 
-To meet this need for information about firefighters movement in a smoke filled building a system for tracking them while they train was created using Bluetooth Low Energy (BLE) beacons and smartphones to track the firefighters and visualize the data about their movements. 
+To meet this need for information about firefighters movement and activity in a smoke filled building a system for tracking them while they train was created using Bluetooth Low Energy (BLE) beacons and smartphones to track the firefighters and visualize the data about their movements. 
 This visualization can be used in the debriefing and evaluation process after the training with their instructor.
 The instructor can also use the data across the teams to see what they need to train on.
 
 \section{Motivation}
-The motivation for doing this masters project is that there is a need for a tool such as this.
+The motivation for doing this masters project is that there is a clear need for a tool that provides smoke divers data-based feedback on their activities.
 We also want to explore the capabilities of, and learn about the BLE beacons and see how well they perform in an environment like this, which is almost unexplored when it regards use of Bluetooth technology. 
 
 \section{iComPAss project}
@@ -38,10 +42,10 @@ This research is part of the iComPAss project.
 \section{Collaboration with co-student}
 While this research is conducted together with a co-student, Edvard Pires Bjørgen, what is reported in this thesis is my own individual work.
 Together we developed the FireTracker system, which comprises an admin interface\todo{Agree with Edvard on a 'name'}, an android application, and a back end.
-I was responsible for the back end, Edvard the admin interface, and we shared the responsibility for the android application \citep{Bjorgen2018}.
+I was responsible for the back end, Edvard the admin interface, and we shared the responsibility for the android application \citep{Bjorgen2018}. \todo{Update name of Edvard's thesis in bibliography}
 
 \section{Research Questions}
-In my thesis I will look at how well the Bluetooth Low Energy beacons perform in a smoke diving setting and environment. 
+In my master project I will look at how well the Bluetooth Low Energy beacons perform in a smoke diving setting and environment. 
 My goal is to answer the following two questions:
 
 \begin{enumerate}
