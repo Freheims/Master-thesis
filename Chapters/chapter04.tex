@@ -15,10 +15,38 @@ The intention is not to give a comprehensive presentation of the technologies, b
 \section{Bluetooth Low Energy Beacons}
 
 \subsection{Bluetooth}
+Bluetooth is a low-power, short-range wireless technology used to connect two or more devices together so they can share data such as images, audio and information between them \citep{bluetooth-how}.
+Today Bluetooth-antennas are included in a wide range of electronic devices such as laptops, mobile phones and tablets.
+There are two different radio version within the Bluetooth standard: Bluetooth Basic Rate/Enhanced Data Rate (BR/EDR), and Bluetooth Low Energy (LE) \citep{BluetoothSpecialInterestGroup2018}.
+This project is utilizing the features of the Bluetooth Low Energy radio in small and easily movable beacons, or transmitters.
 
 \subsection{Bluetooth Low Energy}
+The Bluetooth Low Energy (BLE) standard is a subset of the Bluetooth standard.
+It is designed for low power operation transmitting data in short bursts instead of continuous data streaming \citep{BluetoothSpecialInterestGroup2018}.
+As \citeauthor{Mackensen2012} explain ``BLE is a connection oriented wireless technology, i.e. two devices  which  want  to  exchange  data  must  enter  a  fixed connection before a data transmission is possible'' \citep{Mackensen2012}.
+%TODO write about states
 
 \subsection{iBeacon protocol}
+In 2013 Apple released the iBeacon protocol which is a wireless BLE protocol.
+It is native to iOS, but it is also compatible with other devices such as Android.
+A beacon using the iBeacon protocol will periodically broadcast a data packet consisting of three data points: Universally Unique Identifier (UUID), Major, and Minor \citep{Apple2014}.
+Those data points are described in Table~\ref{tab:iBeacon-protocol}.
+
+This data packet is received by other devices within its range. 
+Those devices are then able to read the data and use it.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{0.1\linewidth}|p{0.1\linewidth}|p{0.7\linewidth}|}
+\hline
+\textbf{Field} & \textbf{Size} & \textbf{Description}                                                                                                                       \\ \hline
+\textbf{UUID}  & 16 bytes      & Application developers should define a UUID specific to their app and deployment use case.                                                 \\ \hline
+\textbf{Major} & 2 bytes       & Further specifies a specific iBeacon and use case. For example, this could define a sub-region within a larger region defined by the UUID. \\ \hline
+\textbf{Minor} & 2 bytes       & Allows further subdivision of region or use case, specified by the application developer.                                                  \\ \hline
+\end{tabular}
+\caption{Description of iBeacon data packets \citep[p. 3]{Apple2014}}
+\label{tab:iBeacon-protocol}
+\end{table}
 
 \section{Android application}
 Android is the most used operating system for smartphones \citep{osmarketshare}. 
