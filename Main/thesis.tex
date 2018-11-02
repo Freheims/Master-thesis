@@ -27,9 +27,13 @@
 %\subfile{../Front/acknowledgment}
 \tableofcontents
 \newpage
-%\listoffigures
 %\blankpage
-%\listoftables
+\listoffigures
+\begingroup
+\let\clearpage\relax
+%\blankpage
+\listoftables
+\endgroup
 %\blankpage
 %\listoflistings
 %\blankpage
@@ -55,7 +59,9 @@
 \bibliography{../library}  
 %\blankpage
 \appendix
-\subfile{../Appendices/interview-guide}
+\subfile{../Appendices/interview-guide-first}
+\subfile{../Appendices/interview-guide-second}
+\subfile{../Appendices/interview-guide-final}
 % Include more appendices as required.
 %%=========================================
 
