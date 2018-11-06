@@ -37,6 +37,7 @@ Those devices are then able to read the data and use it.
 
 \begin{table}[h]
 \centering
+\caption{Description of iBeacon data packets \citep[p. 3]{Apple2014}}
 \begin{tabular}{|p{0.1\linewidth}|p{0.1\linewidth}|p{0.7\linewidth}|}
 \hline
 \textbf{Field} & \textbf{Size} & \textbf{Description}                                                                                                                       \\ \hline
@@ -44,7 +45,6 @@ Those devices are then able to read the data and use it.
 \textbf{Major} & 2 bytes       & Further specifies a specific iBeacon and use case. For example, this could define a sub-region within a larger region defined by the UUID. \\ \hline
 \textbf{Minor} & 2 bytes       & Allows further subdivision of region or use case, specified by the application developer.                                                  \\ \hline
 \end{tabular}
-\caption{Description of iBeacon data packets \citep[p. 3]{Apple2014}}
 \label{tab:iBeacon-protocol}
 \end{table}
 
@@ -169,7 +169,7 @@ At a first glance it seemed like exactly what we needed, but when we delved a bi
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{../fig/pozyx_tag}
-	\caption{Picture of Pozyx tag/anchor (Photo: \url{http://pozyx.io})}
+	\caption[Picture of Pozyx tag/anchor]{Picture of Pozyx tag/anchor (Photo: \url{http://pozyx.io})}
 	\label{fig:pozyx_tag}
 \end{figure}
 
