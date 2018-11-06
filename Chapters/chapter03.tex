@@ -47,9 +47,10 @@ In the study reported here the main artifact is the back end of the FireTracker 
 Those guidelines and their definitions are listed in table~\ref{tab:design-science-guidelines}.
 %The following sections describe how those guidelines apply to this research.
 
-\begin{table}[ht]
+\begin{table}[h]
 \centering
-\begin{tabular}{|p{0.4\linewidth}|p{0.6\linewidth}|}
+\caption{Design Science Research Guidelines \citep[p.83]{hevner2004design}}
+\begin{tabular}{|p{0.4\linewidth}|p{0.55\linewidth}|}
 	\hline
 	\textbf{Guideline} & \textbf{Description} \\ \hline
 	Guideline 1: Design as an Artifact & Design-science research must produce a viable artifact in the form of a construct, a model, a method, or an instantiation. \\ \hline
@@ -60,7 +61,6 @@ Those guidelines and their definitions are listed in table~\ref{tab:design-scien
 	Guideline 6: Design as a search process & The search for an effective artifact requires utilizing available means to reach desired ends while satisfying laws in the problem environment. \\ \hline
 	Guideline 7: Communication of research & Design-science research must be presented effectively both to technology-oriented as well as management-oriented audiences. \\ \hline
 \end{tabular}
-\caption{Design Science Research Guidelines \citep[p.83]{hevner2004design}}
 \label{tab:design-science-guidelines}
 \end{table}
 
@@ -77,6 +77,7 @@ Those guidelines and their definitions are listed in table~\ref{tab:design-scien
 
 
 \section{Prototyping}
+\label{sec:prototyping}
 A prototype is a early version of a product. 
 It is supposed to demonstrate some features or properties of an artifact which can be evaluated and analyzed to gain some understanding about how the product can be revised in the next iteration of the development \citep{oates2005researching}.
 There are two types of prototypes: \textit{low-fidelity-prototype} and \textit{high-fidelity-prototype}
@@ -96,6 +97,54 @@ On this project the goal was to create a High-fidelity prototype with the tracki
 %\subsection{Iterative development}
 %\subsection{Testing}
 
+\section{Interaction Design Lifecycle}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{../fig/Interaction-design-lifecycle}
+	\caption[A simple interaction design lifecycle model]{A simple interaction design lifecycle model\citep[p.332]{Preece2011}}
+	\label{fig:interaction-design-lifecycle}
+\end{figure}
+
+\citet{Preece2011} defines a lifecycle model for interaction design.
+This model is a simplified version of reality, and it is intended as an abstraction.
+An overview of this model is shown in Figure~\ref{fig:interaction-design-lifecycle}.
+
+In their model \citet{Preece2011} divides the interaction design process into four basic activities: \textit{Establishing Requirements}, \textit{Designing Alternatives}, \textit{Prototyping}, and \textit{Evaluating}.
+
+\subsection{Establishing Requirements}
+To create something that can support people, one need to know who those people are, and what kind of support a product can provide. 
+This need for support forms the requirements for the product.
+Establishing requirements is very important in interaction design, and a fundamental part of a user-centered approach to development\citep{Preece2011}.
+
+\subsection{Designing Alternatives}
+Designing alternatives is the core activity of the interaction design lifecycle: suggesting ideas for meeting the requirements.
+It can be divided into two sub-activities: conceptual design and concrete design.
+Conceptual design is creating an abstraction or model of the product, and how it can be used.
+Concrete design is determining details of the actual product, involving choosing colors, sounds, and images\citep{Preece2011}.
+
+\subsection{Prototyping}
+Prototyping is the creation of a prototype using one or more of the techniques described in Section~\ref{sec:prototyping}.
+
+\subsection{Evaluating}
+Evaluation is determining the usability and acceptability of the product measured in terms of usability and user experience criteria.
+In interaction design a high level of user involvement is required throughout the development process to enhance the chance of delivering an acceptable product\citep{Preece2011}.
+
+\subsection{Use of Interaction Design Lifecycle}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{../fig/Method-diagram}
+	\caption{Overview of the development process}
+	\label{fig:method-diagram}
+\end{figure}
+
+The interaction design lifecycle is used in this project.
+The first iteration of the project is establishing requirements and creating design alternatives.
+This iteration is described in Chapter~\ref{ch:requirements}.
+Then there are two iterations of developing prototypes, evaluating them and create new requirements.
+These iterations are described in Chapter~\ref{ch:development-1}~and~\ref{ch:development-2}.
+The last iteration is the final evaluation of the product, which is described in Chapter~\ref{ch:evaluation}.
+An overview of the development process is shown in Figure~\ref{fig:method-diagram}.
+
 \section{Data Collection}
 Collecting data is an important part of the research process, and therefore is choosing the right method for doing so also important.
 This section presents the two methods used in this project: interviews and experiments.
@@ -109,8 +158,13 @@ A semi-structured interview combines the features of unstructured and structured
 The general way of performing a semi-structured interview is to have a set of open questions which is used as guidance, and with open answers to inquire as much information as possible.
 From those open questions other new questions can emerge during the interview \citep{DiCicco-Bloom2006}.
 
+\subsection{System Usability Scale (SUS)}
+
 \subsection{Experiments}
 
+\section{Summary}
 
 
+\onlyinsubfile{\bibliographystyle{chicago}}
+\onlyinsubfile{\bibliography{../library}}
 \end{document}
