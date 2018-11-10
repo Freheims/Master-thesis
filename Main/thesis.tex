@@ -30,14 +30,14 @@
 \newpage
 %\blankpage
 \listoffigures
+%\blankpage
+\listoftables
 \begingroup
 \let\clearpage\relax
 %\blankpage
-\listoftables
+\listoflistings
 \newpage
 \endgroup
-%\blankpage
-%\listoflistings
 %\blankpage
 %\subfile{../Front/acronyms}
 \setcounter{page}{0}
@@ -56,6 +56,7 @@
 % Include more chapters as required.
 %%=========================================
 \clearpage
+\renewcommand{\bibname}{References}
 \bibliographystyle{chicago}
 \addcontentsline{toc}{chapter}{References}
 \bibliography{../library}  
@@ -65,6 +66,7 @@
 \subfile{../Appendices/interview-guide-second}
 \subfile{../Appendices/interview-guide-final}
 \subfile{../Appendices/sus-questions}
+\subfile{../Appendices/source-code}
 % Include more appendices as required.
 %%=========================================
 
