@@ -1,4 +1,5 @@
 \usepackage[utf8]{inputenc} % This defines the font-encoding you prefer to use
+\usepackage[english]{babel}
 \usepackage{fourier}
 \pagestyle{headings}
 \usepackage{marvosym}
@@ -14,6 +15,7 @@
 \linespread{1.3} %Changed from 1.5
 
 \usepackage[bottom]{footmisc}
+\usepackage{subcaption}
 
 \newenvironment{remark}{\par\mbox{}\par\noindent{\bfseries \emph{Remark}\/}:\normalfont}{\par}
 \newenvironment{defin}{\par\mbox{}\par\noindent\bfseries \emph{\Pointinghand\ }\normalfont}{\par}
@@ -22,12 +24,14 @@
 linkcolor=black, citecolor=black, urlcolor=blue, breaklinks]{hyperref}
 \pdfcompresslevel=9
 
-%\usepackage[cache=false]{minted}
-%\usemintedstyle{friendly}
-%\AtBeginEnvironment{minted}{%
-%	\renewcommand{\fcolorbox}[4][]{#4}}
+\usepackage[cache=false,chapter]{minted}
+\usemintedstyle{friendly}
+\AtBeginEnvironment{minted}{%
+	\renewcommand{\fcolorbox}[4][]{#4}}
 
-%\renewcommand\listoflistingscaption{List of source codes}
+\renewcommand\listoflistingscaption{List of source codes}
+\renewcommand{\listingscaption}{Source Code}
+%\captionsetup[lstlisting]{numberbychapter=true}
 
 \usepackage{subfiles}
 \newcommand{\onlyinsubfile}[1]{#1}
