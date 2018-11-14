@@ -284,19 +284,28 @@ The black dots are the visited locations, including the estimated midway points.
 The blue lines are the movements between locations.
 
 In this test five beacons were used. 
+Those beacons where borrowed from another project, as the beacons intended for this project was not available yet.
+The borrowed beacons where two different models from Estimote.
 Three of them was placed in a straight hallway, one was placed in an office in the bottom right (on the figure) end of the hallway, and one was placed in a meeting room next to the end of the hallway.
 The tracking started in the upper end of the hallway, and he walked through the hallway, into the office, back to the hallway, and into the meeting room where the tracking ended.
+
+When he was testing the visualization in the exercise management tool the fire chief said that it felt very cluttered because of all the points and lines.
+He would have preferred to not have the estimated mid-points between two locations, and rather used more beacons with a shorter range.
+The reason for all the lines in the graph is probably both because the beacons used for this test were transmitting using different, and too strong signal strength, and because many of them were placed in the same room.
+Using beacons transmitting with a lower signal-strength, and therefore having a shorter range, would probably solve parts of this problem as well.
 
 \subsection{Interview}
 After the test the fire chief was interviewed using a semi-structured interview.
 The interview lasted for 30 minutes and was transcribed afterwards.
 The interview guide is included in Appendix~\ref{app:interview-guide-second}.
 
-The questions for the interview was divided into five categories: practical, user interface, visualization, data, and other questions.
+The questions for the interview was divided into four categories: practical, user interface, visualization, and data.
 
 \subsubsection*{Practical}
 \begin{enumerate}
 	\item How was it to set up a session?
+
+		
 \end{enumerate}
 
 \textbf{Summary of answer:}\\
@@ -326,7 +335,6 @@ They would also prefer to have the system entirely in Norwegian.
 	\item Did you get enough information about the session?
 	\item Was there anything in the graph or map that was unclear?
 	\item What could the visualization in its current condition be used for?
-	\item Could it be interesting with alerts/messages where a firefighter has been standing still for a long time?
 \end{enumerate}
 
 \textbf{Summary of answers:}\\
@@ -336,13 +344,15 @@ It would have been easier if everything was onscreen at the same time to avoid h
 It looked okay on the PC, but on the iPad, which is what they are going to use, it was some scrolling.
 
 \textit{Question 2:}
-
+The duration of each location can together with their placement on the map be used to discuss why the smoke divers spent much or little time in different parts of the building.
 
 \textit{Question 3:}
+It was very clear, except for the number of dots and lines in the graph, especially since he was the one to set up the session.
+It might be a bit harder for someone else to understand, because of all the dots and lines.
 
 \textit{Question 4:}
+In the current state it would be hard to interpret and use the visualization because of the large number of points in the graph.
 
-\textit{Question 5:}
 
 \subsubsection*{Data}
 \begin{enumerate}
@@ -355,18 +365,20 @@ It looked okay on the PC, but on the iPad, which is what they are going to use, 
 
 \textbf{Summary of answers:}\\
 \textit{Question 1:}
+It could end up being too much data as the smoke divers use their bodies actively and are in constant movement.
+The most important and interesting information is the tracing of their location.
+
 \textit{Question 2:}
-
-\subsubsection*{Other}
-\begin{enumerate}
-	\item Do you have other comments or suggestions?
-\end{enumerate}
-
-\textbf{Summary of answer:}\\
-\textit{Question 1:}
+It could be interesting to show the number of steps walked as the smoke divers are supposed to use their feet actively in the search, and this could be an indicator on how much they used their feet.
 
 \subsection{Analysis of interview}
+It is clear that the fire department is interested in using a system such as FireTracker, and they think it could be a valuable form of feedback when evaluating smoke diving exercises.
+The system is easy to understand and use, and with the addition of in-system instructions, it would be even better.
+At the moment the problem with the system is the large amount of points in the visualization, which are caused by the estimated mid-points between two locations.
+Those should be removed to reduce the clutter.
 
 \section{Summary}
+This chapter has described the second iteration of the development process.
+In this iteration a working prototype of the system was developed, and tested together with Øygarden Fire and Rescue.
 
 \end{document}
