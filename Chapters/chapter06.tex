@@ -71,7 +71,7 @@ In this iteration the web-server functionality was implemented together with a b
 \subsection{Web-server}
 The web-server handles HTTP requests from the other components of the FireTracker system and stores data it receives in a database. 
 It also fetches data from this database and return it to the Android app or the exercise management tool when they ask for data.
-In this iteration a variety of endpoints were implemented allowing the creation of new sessions, retrieving a list of unprocessed or processed sessions, retrieving a single unprocessed or processed session, updating an unprocessed session, adding beacons and maps, and retrieving a list of beacons. 
+In this iteration a variety of endpoints were implemented allowing the creation of new sessions, retrieving a list of unprocessed or processed sessions, retrieving a single unprocessed or processed session, updating an unprocessed session, adding beacons and maps, retrieving a list of beacons, and retrieving a map. 
 An overview of all the endpoints is shown in Table~\ref{tab:endpoints-1}.
 
 \begin{table}[h]
@@ -81,20 +81,29 @@ An overview of all the endpoints is shown in Table~\ref{tab:endpoints-1}.
 \textbf{Relative path} & \textbf{Request Type} & \textbf{Parameters} & \textbf{Description}                                                    \\ \hline
 /session               & OPTIONS               &                     & Create a new session                                                    \\ \hline
 /raw/sessions          & GET                   &                     & Get unprocessed sessions                                                \\ \hline
-/raw/session/:id        & GET                   &                     & Get a unprocessed session with the ID ``id''                            \\ \hline
+/raw/session/:id       & GET                   &                     & Get a unprocessed session with the ID ``id''                            \\ \hline
 /raw/sessions          & POST                  & Finished            & Get unprocessed sessions where the finished-flag is set to ``Finished'' \\ \hline
-/raw/session/:id        & PUT                   &                     & Update a session with the ID ``id''                                     \\ \hline
-/session/:id            & GET                   &                     & Get a processed session with the ID ``id''                              \\ \hline
+/raw/session/:id       & PUT                   &                     & Update a session with the ID ``id''                                     \\ \hline
+/session/:id           & GET                   &                     & Get a processed session with the ID ``id''                              \\ \hline
 /beacon                & POST                  &                     & Create a new beacon                                                     \\ \hline
 /beacons               & GET                   &                     & Get a list of all beacons                                               \\ \hline
-/sessionbeacon         & POST                  &                     & Create a new beacon for a spesific session                              \\ \hline
+/sessionbeacon         & POST                  &                     & Create a new beacon for a specific session                              \\ \hline
 /map                   & POST                  &                     & Upload a map                                                            \\ \hline
+/maps/:filename        & GET                   &                     & Get the map with filename ``filename''                                  \\ \hline
 \end{tabular}
 \label{tab:endpoints-1}
 \end{table}
 
 \subsection{Data processing}
-GRRRRR!\todo{skriv noko her}
+The data processing is executed when a session is updated with data from the tracking.
+The algorithm creates a list of locations which is positions of the smoke diver at a given time.
+The first location is the first data point in the list.
+Then the algorithm goes through all of the remaining data points and checks if the signal is from one of the beacons used in the session. 
+If the data point is from one of the associated beacons it checks if the signal is from the same beacon as the location it is currently working on.
+If it is the same beacon it updates the duration of the location and checks the difference in steps and rotation values of the gyroscope to see if the walking and head movement flags should be set to true.
+If it is a new beacon and it has a stronger signal strength than the last received signal from the previous beacon it creates two new locations.
+The first location is an estimation of the movement of the smoke diver and is placed at the mid-point between the previous and the new beacon.
+The second location is at the position of the new beacon.
 
 \section{Data Specifications}
 As the three components of FireTracker was going to communicate and transfer data between them, a data specification was created.
@@ -215,6 +224,11 @@ The JSON representation of a SessionBeacon is shown in Source~Code~\ref{listing:
 \end{listing}
 
 \subsection{Location}
+A location is a position of the user at a given time during the exercise.
+It is created by the data processing algorithm.
+A location has an ID, the ID of the session it belongs to, an x-coordinate, an y-coordinate, a duration, a walking-flag, and a head movement-flag.
+The coordinates is the coordinates of the beacon this location is associated with.
+The JSON representation of a Location is shown in Source~Code~\ref{listing:location-json-1}.
 
 \begin{listing}[h]
 	\begin{minted}
@@ -232,12 +246,127 @@ The JSON representation of a SessionBeacon is shown in Source~Code~\ref{listing:
 	"HeadMovement": <boolean>
 }
 \end{minted}
-\caption{Location data specification}
+\caption{Location JSON-object}
 \label{listing:location-json-1}
 \end{listing}
 
 \section{Testing}
+This iteration concluded with a test of the prototype and interview with Øygarden Fire and Rescue.
+
 \subsection{Demonstration and testing}
-\subsection{Feedback}
+The test took place at Ågotnes fire station in the office section of the building.
+It started with a presentation of the prototype for the fire chief with a summary of what had been developed and how the system works.
+After that the fire chief got to try out the creation of a session included placing out beacons in the building. 
+A picture of him while creating the session is shown in Figure~\ref{fig:iteration2-demo}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{../fig/iteration2-demo}
+	\caption[Fire chief testing the FireTracker system]{Fire chief (sitting in the middle) testing the FireTracker system}
+	\label{fig:iteration2-demo}
+\end{figure}
+
+When the session was created and all the beacons placed the fire chief started up the Android app and selected the session he created and started tracking.
+With the tracker active he walked slowly through the upper floor where all the beacons was placed.
+After he had finished walking through the building he ended the session and uploaded the data.
+The generated visualization was then showed to him.
+This visualization is shown in Figure~\ref{fig:iteration2-map}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{../fig/iteration2-map}
+	\caption{Map with tracking from test in iteration 2}
+	\label{fig:iteration2-map}
+\end{figure}
+
+In the visualization the blue dots are the position of the beacons.
+The black dots are the visited locations, including the estimated midway points.
+The blue lines are the movements between locations.
+
+In this test five beacons were used. 
+Three of them was placed in a straight hallway, one was placed in an office in the bottom right (on the figure) end of the hallway, and one was placed in a meeting room next to the end of the hallway.
+The tracking started in the upper end of the hallway, and he walked through the hallway, into the office, back to the hallway, and into the meeting room where the tracking ended.
+
+\subsection{Interview}
+After the test the fire chief was interviewed using a semi-structured interview.
+The interview lasted for 30 minutes and was transcribed afterwards.
+The interview guide is included in Appendix~\ref{app:interview-guide-second}.
+
+The questions for the interview was divided into five categories: practical, user interface, visualization, data, and other questions.
+
+\subsubsection*{Practical}
+\begin{enumerate}
+	\item How was it to set up a session?
+\end{enumerate}
+
+\textbf{Summary of answer:}\\
+\textit{Question 1:}
+It was easy both to understand and create a session. 
+It was really easy to take a picture of the map, upload it and place the beacons on the map.
+
+\subsubsection*{User Interface}
+\begin{enumerate}
+	\item Were there parts of the system that was difficult to understand or use?
+	\item Does the system (app+exercise management tool) give enough information on how to use it?
+\end{enumerate}
+
+\textbf{Summary of answers:}\\
+\textit{Question 1:}
+It was easy to use. 
+He got the first presentation of the system under an hour ago and has already created and used a session without problems.
+
+\textit{Question 2:}
+There should be a user manual for the system that can be read before using the system. 
+And if that user manual explains the process simply and with pictures it should be no problem to use the system.
+They would also prefer to have the system entirely in Norwegian. 
+
+\subsubsection*{Visualization}
+\begin{enumerate}
+	\item How was the navigation of the visualization?
+	\item Did you get enough information about the session?
+	\item Was there anything in the graph or map that was unclear?
+	\item What could the visualization in its current condition be used for?
+	\item Could it be interesting with alerts/messages where a firefighter has been standing still for a long time?
+\end{enumerate}
+
+\textbf{Summary of answers:}\\
+\textit{Question 1:}
+A bit challenging to begin with.
+It would have been easier if everything was onscreen at the same time to avoid having to scroll up and down.
+It looked okay on the PC, but on the iPad, which is what they are going to use, it was some scrolling.
+
+\textit{Question 2:}
+
+
+\textit{Question 3:}
+
+\textit{Question 4:}
+
+\textit{Question 5:}
+
+\subsubsection*{Data}
+\begin{enumerate}
+	\item What do you think about using information on head movement to say something about how active a firefighter is?
+	\item We use step counter to see if a smoke diver moves inside the area of a beacon. Is this information interesting?
+	\begin{itemize}
+		\item Would it be interesting to show the number of steps or the distance?
+	\end{itemize}
+\end{enumerate}
+
+\textbf{Summary of answers:}\\
+\textit{Question 1:}
+\textit{Question 2:}
+
+\subsubsection*{Other}
+\begin{enumerate}
+	\item Do you have other comments or suggestions?
+\end{enumerate}
+
+\textbf{Summary of answer:}\\
+\textit{Question 1:}
+
+\subsection{Analysis of interview}
+
+\section{Summary}
 
 \end{document}
