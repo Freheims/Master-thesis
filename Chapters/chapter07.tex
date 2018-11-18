@@ -85,6 +85,7 @@ All available endpoints with their description is presented in Table~\ref{tab:en
 \end{table}
 
 \subsection{Data processing}
+\label{sec:data-processing-2}
 The data processing algorithm went through a massive overhaul in this iteration.
 The estimation of mid-points between two locations was removed, and the collected data were ``cleaned'' to avoid jumping back and forth between locations with short duration. 
 The final version of the algorithm that was developed in this iteration is described in the following paragraphs.
@@ -170,6 +171,7 @@ All other data specifications remained as they were described in Chapter~\ref{se
 \end{figure}
 
 \section{Testing}
+\label{sec:iteration3-testing}
 During this iteration some testing was done to ensure the system was ready for the final evaluation.
 This testing was done on campus at the Department of Information Science and Media Studies.
 A map of the floor used for the test is shown in Figure~\ref{fig:infomedia-map}.
@@ -199,14 +201,25 @@ The result of this observation was that the scanning interval in the Android app
 This change improved the scanning results, and the devices that previously got the least amount of data points got closer to the number of data points collected by the devices that got largest amount, but there was still a difference.
 Therefore the two devices that collected the largest amount of data points was selected for the rest of the testing and the final evaluation.
 
-The next observation was that even though the beacons were set to transmit at the lowest possible signal strength...\todo{Create good sentence}
+The next observation was that even though the beacons were set to transmit at the lowest possible signal strength the beacons had a longer range than expected.
+Because of this the devices received signals from several beacons at the same time, and the difference in RSSI between the closest beacon and a beacon 15 meters away was both small and inconsistent.
+This made it hard to use any kind of measures to decide which beacon was the closest.
+Another result of this was that the actual time a smoke diver spent in an area was split up into several locations with locations from other beacons with a very short duration in between.
+This effect was reduced by the cleaning process described in Section~\ref{sec:data-processing-2}.
+
 Attempts were made to reduce the signal strength of the beacons.
 The beacons were partly wrapped in aluminum foil, but that did not have any significant impact on the signal strength.
 The beacons were totally wrapped in aluminum foil, but that resulted in no signal received from the beacon at all.
 The Android devices were wrapped in aluminum foil, and the result was that they received no BLE signals at all.
-\todo{Write how we dealt with this}
+
+Because of time constraints a decision on how to handle this problem had to be made.
+The fact that the beacons were mostly placed in the same room, or was separated by glass walls seemed like a plausible explanation of why this problem occurred.
+It was also expected that spreading the beacons across different rooms with thicker walls that blocks the signals better would improve the result.
+Therefore it was decided not to do anything more with the system and beacons.
 
 \section{Summary}
 This chapter described the third, and last, iteration of the development.
 During this iteration the prototypes were finalized and tested.
+
+\blankpage
 \end{document}
