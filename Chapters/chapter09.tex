@@ -6,6 +6,73 @@
 \begin{document}
 \chapter{Discussion}
 \label{ch:discussion}
+This chapter discusses and reflect upon the research methods used in this project and answers the research questions.
 
+\section{Design Science Research}
+Throughout this research the Design Science research methodology was used by following the seven guidelines: \textit{design as an artifact}, \textit{problem relevance}, \textit{design evaluation}, \textit{research contributions}, \textit{research rigor}, \textit{design as a search process}, and \textit{communication of research} \citep{hevner2004design}.
+
+Design as an artifact means that the research must produce a viable artifact in the form of a construct, a model, a method, or an instantiation \citep{hevner2004design}.
+This research has produced the FireTracker system, with its three components, as the main artifact.
+
+Problem relevance means that the purpose of the research should be to develop technology-based solutions to solve relevant and important problems for businesses and organizations \citep{hevner2004design}.
+This research has satisfied this guideline by creating a system which can help firefighters get more and better feedback from their smoke diving training.
+
+Design evaluation means that the utility, quality, and efficacy of a design artifact must be rigorously demonstrated via well-executed evaluation methods \citep{hevner2004design}.
+In this research the design evaluation was fulfilled by the evaluation of the final prototype which was described in Chapter~\ref{ch:evaluation}.
+
+Research contributions means that the research must provide clear and verifiable contributions in the areas of the design artifact, design foundations, and/or design methodologies \citep{hevner2004design}.
+This research provides the FireTracker system as its main artifact, and it has contributed in the field of learning analytics and as there is little existing research on the use of BLE in this situation it can also be considered as a design foundation.
+
+Research rigor means that the research relies upon the application of rigorous methods in both the construction and evaluation of the design artifact \citep{hevner2004design}.
+The artifact has been developed as a high-fidelity prototype that was evaluated using experiments, semi-structured interviews, and SUS questionnaires.
+
+Design as a search process means that the search for an effective artifact requires utilizing available means to reach desired ends while satisfying laws in the problem environment \citep{hevner2004design}. 
+This research project went through an iterative development with testing and evaluation after each iteration, and the results from the testing was used to improve the prototype in the next iteration.
+
+Communication of research means that the research must be presented effectively both to technology-oriented as well as management-oriented audiences \citep{hevner2004design}. 
+The artifact created in this research has been presented to smoke divers, instructors and the fire chief at Øygarden Fire and Rescue.
+A presentation of the research were also made, in the form of a poster, at the LASI-Nordic conference in Copenhagen, Denmark.
+This poster is included in Appendix~\ref{app:lasi-poster}.
+
+\section{Semi-structured Interviews}
+Semi-structured interviews were used to establish requirements in the first iteration, evaluate and get feedback on the first prototype in iteration two, and to evaluate the final prototype.
+Using semi-structured interviews gave the researchers answers to the predefined questions, while also giving the firefighters and instructors freedom to comment other aspects of the system, suggest new ideas or improvements.
+This was very important when establishing requirements in the first iteration as the researchers had little prior knowledge on how the firefighter training is executed and what needs the fire department had.
+Using semi-structured interviews in the evaluation provided feedback on the developed system, but also on how it could be developed further, and other use cases for the system.
+
+\section{System Usability Scale}
+System Usability Scale questionnaires was used, in addition to interviews, in the evaluation of the final prototype.
+It provided quantitative data on how the smoke divers and instructors perceived the usability of the FireTracker system.
+The sixth question which is: \textit{``6. I thought there was too much inconsistency in this system.''} was confusing for all of the respondents, and they did not immediately know how to answer it.
+The researchers explained that it was probably more applicable to larger systems with more functionality, but for this evaluation they could have the design of the app and the exercise management tool in mind when answering it.
+
+The smoke divers would normally only be exposed to the visualizations after the exercise, and not the setup of a session or the Android application.
+In this evaluation the entire system was presented to them, in addition to the instructors, but they did not test it.
+This could be the reason for the lower SUS scores from the smoke divers.
+
+\section{Technical tests}
+The technical tests done in iteration 3 were done as experiments in a controlled environment.
+Those test showed that there were some issues with the Bluetooth Low Energy beacons, which affected the precision and usability of the FireTracker system.
+If time had allowed it more technical testing should have been done to find a way to reduce the signal strength from the beacons, or to get enough statistics about the beacon signal strength so it could be handled in the software.
+
+\section{Research Questions}
+This research provided two research questions in Chapter~\ref{ch:introduction}.
+To answer those questions the FireTracker system was developed and evaluated.
+
+Research Question 1: \textit{How can BLE beacons be used to support firefighter movement tracking under smoke diving training?}
+
+This research shows that Bluetooth Low Energy beacons has potential for being used for tracking firefighters.
+Using them for precision tracking in a temporary location, such as those used by Øygarden Fire and Rescue, seems unrealistic at the moment.
+To get precision tracking one would need a system such as the one described by ??\todo{referanse} (summarized in Chapter ??\todo{ref til kap 2}), which is not a solution that can be moved around.
+For a permanent setup a solution like that could be used.
+
+Using BLE beacons for proximity tracking, as is shown in this research, seems like the most viable solution for tracking firefighters during smoke diving training, when the location of the exercises change often.
+Currently there are some technical difficulties with the BLE beacons, but if beacons that transmit using lower signal strength becomes available the current version of FireTracker could work well.
+
+Research Question 2: \textit{Do the beacons provide good enough information for useful feedback?}
+
+As earlier mentioned the currently available Bluetooth Low Energy beacons are not precise and consistent enough to provide an accurate tracking of the firefighters' movements.
+Therefore the information presented in the FireTracker system only gives the users an idea of their movements and time usage.
+This could be somewhat useful when exercising in a smoke filled building, as the instructor cannot see what the smoke divers are doing, but in general the current version of the system does not provide good enough information for useful feedback.
 
 \end{document}
