@@ -52,7 +52,7 @@ linkcolor=black, citecolor=black, urlcolor=blue, breaklinks]{hyperref}
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{1em}
 
-\newcommand{\blankpage}{\newpage{}\thispagestyle{empty}\mbox{}\newpage{}}
+\newcommand{\blankpage}{\newpage{}\thispagestyle{simple}\mbox{}\newpage{}}
 
 
 %HEADERS
@@ -69,6 +69,14 @@ linkcolor=black, citecolor=black, urlcolor=blue, breaklinks]{hyperref}
   \fancyhf{} % remove everything
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
-  \fancyhead[RO,LE]{\thepage}
+  \fancyhf{}
+  %\fancyhead[RO,LE]{\thepage}
 }
 
+\fancypagestyle{simple}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+  %\fancyhf{}
+  \fancyhead[RO,LE]{\thepage}
+}

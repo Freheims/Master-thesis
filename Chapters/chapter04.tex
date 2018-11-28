@@ -10,7 +10,7 @@
 Several technologies have been used for this project, and they can be divided into three categories, depending on the part of the system to witch they belongs: app, back end, and front end.
 This chapter provides an overview of the technologies used in the research, and provides an explanation of how and why they where chosen and used.
 It will also describe some alternative technologies that could have been used.
-The intention is not to give a comprehensive presentation of the technologies, but instead give a brief introduction to support and explain our choices.
+The intention is not to give a comprehensive presentation of the technologies, but instead give a brief introduction to support and explain the choices made.
 
 \section{Bluetooth Low Energy Beacons}
 
@@ -23,7 +23,7 @@ This project is utilizing the features of the Bluetooth Low Energy radio in smal
 \subsection{Bluetooth Low Energy}
 The Bluetooth Low Energy (BLE) standard is a subset of the Bluetooth standard.
 It is designed for low power operation transmitting data in short bursts instead of continuous data streaming \citep{BluetoothSpecialInterestGroup2018}.
-As \citeauthor{Mackensen2012} explain ``BLE is a connection oriented wireless technology, i.e. two devices  which  want  to  exchange  data  must  enter  a  fixed connection before a data transmission is possible'' \citep{Mackensen2012}.
+As \citet[p. 2]{Mackensen2012} explain ``BLE is a connection oriented wireless technology, i.e. two devices  which  want  to  exchange  data  must  enter  a  fixed connection before a data transmission is possible''.
 %TODO write about states
 
 \subsection{iBeacon protocol}
@@ -50,11 +50,11 @@ Those devices are then able to read the data and use it.
 
 \section{Android application}
 Android is the most used operating system for smartphones \citep{osmarketshare}. 
-It is developed by google and is based on the Linux kernel.
+It is developed by Google and is based on the Linux kernel.
 Android was initially released in 2005 \citep{Morrill2008a} and the most current version is Android 9 ``Pie'' \cite{Samat2018}.
 
 The main alternative to using Android would be to use Apples iOS.
-Since both had experience developing for Android and neither have developed for iOS earlier, Android  was chosen to save time.
+Since both had experience developing for Android and neither have developed for iOS earlier, Android was chosen to save time due to my familiarity with programming for Android.
 Another reason for choosing Android is access to devices for testing (both have an Android)
 A recommendation is that if you are developing for iOS you should use a Mac, to which we did not have access.
 
@@ -74,7 +74,7 @@ The other reason is that out of the three languages Java, Kotlin and C++ \citep{
 
 
 \subsection{Android Beacon Library}
-Android Beacon Library (ABL) is an Android library that allows Android devices to interact with BLE beacons. 
+Android Beacon Library (ABL) is an Android library that enables Android devices to interact with BLE beacons. 
 It simplifies the process of searching for beacons and retrieve information, such as id, name and RSSI from them.
 The library can also be used to listen for beacons in the background \citep{RadiusNetwork2015}.
 This library was chosen because it is one of few libraries that is actively maintained.
@@ -109,7 +109,7 @@ It is a statically typed, concurrent and compiled language \citep{Pike2012}.
 Go is often referred to as Golang. 
 The Go project is open source, meaning everyone can contribute to the development of the language.
 Lately Go has become a popular choice for developing scalable web services.
-We chose to use Go because we had some experience using it for developing an REST-API in another project and we wanted to develop our skills with the language.
+I chose to use Go because we had some experience using it for developing an REST-API in another project and we wanted to develop our skills with the language.
 
 \subsection{Gin}
 Gin is a web framework for Go for creating HTTP servers.
@@ -126,9 +126,9 @@ One only has to care about and work with Go structures and Gorm takes care of cr
 SQLite is a SQL database where the entire database, with tables, indices, views and triggers, is stored in a single disk file.
 This is easy to use and suitable for smaller applications where a full database back end is not needed \citep{Hipp2015}.
 It makes it easier to test your system as you do not have to set up and connect to a local or remote database.
-The entire database is just a single file which is easy to create, back up or delete when you need to.
+The entire database is just a single file which is easy to create, back up or delete when need be.
 
-\section{Front end}
+\section{Exercise Management Tool}
 \subsection{JavaScript}
 JavaScript is a programming language released in 1995 \citep{Netscape1995}.
 It is one of the three core technologies used for building web sites, the other two being HTML and CSS.
@@ -139,7 +139,7 @@ As the admin interface and visualization tool in FireTracker is a web-applicatio
 React is a JavaScript library for building user interfaces.
 It is developed by Facebook \citep{FacebookInc.2014}.
 React lets you create views for each state in your application, and when data changes it will update and render only the affected components.
-React because we wanted to use this opportunity to learn a new JavaScript framework.
+React was chosen because Edvard wanted to use this opportunity to learn a new JavaScript framework.
 
 \section{Alternative Technologies}
 In many cases there were alternative technologies that could have been chosen.
@@ -150,20 +150,21 @@ In the following paragraphs the relevant technologies are described along with t
 Pozyx is a platform for accurate indoor positioning.
 A couple of months into the development we were made aware of the ``Pozyx Accurate Positioning'' project.
 Pozyx uses Arduino-based anchors and tags together with ultra-wideband technology to achieve indoor tracking with centimeter precision \citep{Pozyx2017}.
-At a first glance it seemed like exactly what we needed, but when we delved a bit further into this system we made two observations that would have a negative effect on usability:
+At a first glance it seemed like exactly what we needed, but when we delved a bit further into this system we made three observations that would have a negative effect on usability:
 \begin{enumerate}
 	\item{Both the anchors and tags needs external power. 
-		The anchors can easily be connected to a power outlet if there are any nearby, but the tags need to be portable in our use case so we would have to attach some kind of battery to them.
+		The anchors can easily be connected to a power outlet if there are any nearby, but the tags need to be portable.
+		In our use case we would have to attach some kind of battery to them.
 		Adding a battery would also make the already large and bulky device larger, see Figure~\ref{fig:pozyx_tag}.
-		This would be a problem as the devices will be to either the firefighter's helmet or oxygen tank, and therefore it needs to be small, lightweight and with a minimal risk of hooking onto something.
+		This would be a problem as the devices will be attached to either the firefighter's helmet or oxygen tank, and therefore it needs to be small, lightweight and with a minimal risk of hooking onto something.
 	}
 
 	\item{In the beginning it seemed like the only way to retrieve data from the Pozyx tags was to physically connect them to another device and extract data.
-		It was decided that this would be to cumbersome and restrictive.
+		It was decided that this would be too cumbersome and restrictive.
 		Later it was discovered that it is possible to remotely retrieve data via a web-API.}
 
-	\item{One of the goals of the project was to create a system which is easy to use and set up for firefighter instructors with little or no technical background.
-		Therefore a system that requires assembling of circuit-boards and batteries was considered not to be user-friendly enough.}
+	\item{One of the goals of the project was to create a system that is easy to use and set up for firefighter instructors with little or no technical background.
+		Therefore, a system that requires assembling of circuit-boards and batteries was considered not to be user-friendly enough.}
 \end{enumerate}
 
 \begin{figure}
@@ -176,13 +177,16 @@ At a first glance it seemed like exactly what we needed, but when we delved a bi
 
 \subsection{Arduino}
 At a very early stage it was discussed as to whether it would be possible to create our own tracking devices using Arduino boards and soldering and connecting Bluetooth-antennas to them to create a Bluetooth-transmitter.
-We soon discovered that this was a field none of us had any experience with, and it would probably have taken far too much time to develop this solution.
+We soon discovered that this was a field neither of us had any experience with, and it would probably have taken far too much time to develop this solution.
 The probability of us creating a product, in such a short time, that would be comparable to the available off-the-shelf products is also low.
 
 \subsection{Estimote}
 Another popular beacon manufacturer is Estimote who produces a variety of BLE beacons \citep{EstimoteInc.2018}.
 Together with their beacons Estimote also supplies a Software Development Kit (SDK) which theoretically should make it easy to interact with the beacons, however, there are warnings against using these Beacons and SDK because of the many bugs and instabilities in the SDK, and they even dropped support for their old version of it to create a new one from scratch \citep{Saetre2017}.
 
+
+\section{Summary}
+This chapter has presented technologies used in this research and the reason they were chosen.
 
 \onlyinsubfile{\bibliographystyle{chicago}}
 \onlyinsubfile{\bibliography{../library}}

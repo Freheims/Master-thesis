@@ -6,20 +6,21 @@
 \begin{document}
 \chapter{Literature Overview}
 \label{ch:literature_overview}
-This chapter will cover research and theory about existing technology that covers similar research fields as this project. 
-It will cover three areas.
-First an introduction to learning analytics.
-Second an overview of existing positioning systems, both for indoor and outdoor positioning.
-Third some similar research conducted by others.
+This chapter covers research and theory about existing technology and reviews similar research fields.
+First, an introduction to learning analytics is given.
+Second, an overview of existing positioning systems, both for indoor and outdoor positioning is presented.
+Third some similar research conducted by others is described.
 
 \section{Learning Analytics} 
 Learning analytics can be described as using data about learning patterns and activity to provide new insights into educational practices and to improve learning, teaching and decision-making \citep{Siemens2012a}
 At the \textit{1st International Conference on Learning Analytics \& Knowledge} in 2011 learning analytics was defined as: \textit{``Learning analytics is the measurement, collection, analysis and reporting of data about learners and their contexts, for purposes of understanding and optimising learning and the environments in which it occurs.''} \citep{BuckinghamShum2012}.
+This is still the most common definition.
 
 
 \subsection*{Multimodal Learning Analytics}
-Multimodal Learning Analytics is described as using multiple data sources for extracting data from a learning situation, that can be used to predict, understand and quantify student learning \citep{Worsley2010}.
+Multimodal Learning Analytics is described as using multiple data sources for extracting data from a learning situation, to predict, understand, and quantify student learning \citep{Worsley2010}.
 It has later been defined by \citet{Worsley2016} as: \textit{``Multimodal learning analytics (MMLA) sits at the intersection of three ideas: multimodal teaching and learning, multimodal data, and computer-supported analysis. At its essence, MMLA utilizes and triangulates among non-traditional as well as traditional forms of data in order to characterize or model student learning in complex learning environments.''}
+The research presented in this thesis uses multimodal data.
 
 \section{Positioning Systems}
 The literature on positioning systems can be split in two categories: outdoor positioning and indoor positioning.
@@ -30,7 +31,7 @@ They can cover the entire globe or a smaller piece of the earth.
 The Global Positioning System (GPS) is owned by the United States Government and consists of 24 satellites and delivers worldwide positioning, navigation and timing \citep{U.S.DepartmentofDefence2008}.
 GPS provides an general outdoor accuracy of three meter horizontally and five meter vertically in most situations \citep{U.S.DepartmentofDefence2008}, and with mobile phones the horizontal accuracy is between 5.0m and 8.5m \citep{Zandbergen2011a}.
 This accuracy itself would limit the usability of GPS indoors.
-As GPS demands a free line of sight from the device to four or more satellites the indoor precision is even less accurate \citep{Zandbergen2011a}.
+As GPS demands a free line of sight from the device to four or more satellites, the indoor precision is even less accurate \citep{Zandbergen2011a}.
 
 Today GPS is available for a very large part of the population as GPS chips are embedded in most smartphones, and it would be convenient to be able to use it for indoor tracking as well, but because of the lack of indoor precision the use case is very limited.
 
@@ -44,18 +45,18 @@ Indoors GLONASS suffers from the same inaccuracy as GPS because of the obstructi
 Indoor positioning systems (IPS) are systems for positioning an object inside a building.
 Generally such systems can provide either low accuracy over a large area or high accuracy in a small area.
 Systems that provide high accuracy often require extensive infrastructure, many sensors and time consuming calibration \citep{Curran2011}.
-Indoor positioning systems can use a variety of technologies, like WiFi \citep{chang2010robust}, Radio frequency identification (RFID) \citep{Saab2011}, light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, or Bluetooth, to achieve positioning.
+Indoor positioning systems can use a variety of technologies, such as WiFi \citep{chang2010robust}, Radio frequency identification (RFID) \citep{Saab2011}, light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, or Bluetooth, to achieve positioning.
 
 There are several ways of using Bluetooth Low Energy (BLE) beacons for positioning.
 Normally the beacons are placed as anchors in the area the IPS is supposed to cover, and a device with a Bluetooth receiver is used to collect the signals transmitted from the beacons.
 The collected signals are then used to calculate the position.
 Depending on the availability of beacons and accuracy needed from the IPS the setup could use one beacon in each room, or multiple beacons in each room.
 
-If one beacon in each room is used the tracking device can read the received signal strength from all beacons in it's vicinity, and assume that the strongest signal strength must be from the closest beacon.
+If one beacon in each room is used, the tracking device can read the received signal strength from all beacons in it's vicinity, and assume that the strongest signal strength must be from the closest beacon.
 Therefore the tracking device can assume that it is located in the same room as the beacon which sent the strongest signal.
 This could then be used to visualize and present the device's location, for the user, on a map.
 
-If several beacons are placed in each room one approach would be to use trilateration to determine the position.
+If several beacons are placed in each room, one approach would be to use trilateration to determine the position.
 Trilateration is a trigonometric method of positioning an object.
 It requires the tracked object to have a line of sight to at least three beacons simultaneously.
 The distance from each of the three beacons to the object must be calculated.
@@ -77,16 +78,17 @@ The problem with using trilateration for positioning is that it requires the com
 According to \citet{Chawathe} the correlation between the received signal strength index and the distance between the objects is not sufficiently high enough to be used to determine an exact position.
 
 Another approach to positioning with multiple beacons in the same room is using the nearest-neighbor algorithm \citep{Takahashi2016}.
-Using this algorithm \citet{Takahashi2016} presents a maximum error distance of 2.0m.
+Using this algorithm \citet{Takahashi2016} present a maximum error distance of 2.0m.
 This algorithm requires the average RSSI, of 50 samples, from each beacon to be measured at predefined positions to be measured before the tracking starts.
 It also requires the average RSSI, of 50 samples, to determine a position during the tracking \citep{Takahashi2016}.
 These requirements makes this approach unsuitable for temporary setups, and for tracking moving objects.
 
 
 \section{Related works} 
-This section presents earlier research by other which have similarities to the research presented in this thesis.
+This section presents earlier research by others which has similarities to this research.
 
 \subsection{Bluetooth tracking of humans in an indoor environment: An application to shopping mall visits}
+\label{sec:ble-tracking-mall}
 \citet{Oosterlinck2017} performed a study where they investigated the applicability of indoor Bluetooth tracking in a shopping mall, and how it could be used for marketing purposes.
 In their study \citep{Oosterlinck2017} found that Bluetooth tracking is usable to analyze the spatio-temporal behavior of the customers in the shopping mall.
 They also found that the collected data is richer and of higher quality than traditional surveys used to collect information about customers movements, and therefore it could be useful for marketing purposes.
@@ -102,6 +104,12 @@ The use case for this interface is a search-and-rescue operation involving multi
 During the operation the interface will represent information about the makeup of the search area, the positions of the search teams, and the weather in the search area.
 The intention is to present this information to the search-and-rescue managers, so they can use it in the planning of the operation.
 
-\blankpage
+\section{Summary}
+In this chapter learning analytics was introduced, an overview of existing positioning systems was given, and three similar research projects were described.
+Learning analytics is relevant for this thesis as the FireTracker system can be used to analyze the learning process of the smoke divers.
+The Bluetooth tracking project described in Section~\ref{sec:ble-tracking-mall} is related to this research by the use of Bluetooth Low Energy technology for tracking movements of humans.
+The CoenoFire project utilizes smartphones to monitor and firefighters, which is also what the research reported in this thesis does.
+The research on a tangible interface for managers in search and rescue operations also aims to track and monitor the movements of firefighters, but in another context than this thesis.
+
 
 \end{document}

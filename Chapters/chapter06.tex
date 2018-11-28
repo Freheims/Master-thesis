@@ -19,11 +19,11 @@ Each session is represented with a name and the name of the person who is suppos
 When a smoke diver is getting ready for the exercise he chooses the appropriate session from the list which takes him to the next screen.
 
 The second screen in the app (see Figure~\ref{fig:app-first-prototype-trackingactivity}) tells the user that the app is not currently tracking and has a blue play-button and instructions telling the user to press the button to start the tracking.
-When a user press the play-button a dialog-box is shown asking for confirmation that the user want to start the tracking. 
-If the user confirms he is taken to the third screen (see Figure~\ref{fig:app-first-prototype-tracking}) and the app start searching for BLE-signals.
+When a user presses the play-button a dialog-box is shown asking for confirmation that the user want to start the tracking. 
+If the user confirms he is taken to the third screen (see Figure~\ref{fig:app-first-prototype-tracking}) and the app starts searching for BLE-signals.
 Every time the app receives a BLE-signal it stores the signal-strength, identifiers of the beacon transmitting the signal, data from the gyroscope and accelerometer in the phone, and a timestamp, as a datapoint in the current session.
-When the user has finished the tracking and presses the stop-button a new dialog appears to confirm that the user want to end the tracking.
-If the user confirms all the recorded data is uploaded to the server for processing, and a upload-dialog is shown (see Figure~\ref{fig:app-first-prototype-upload}.
+When the user has finished the tracking and presses the stop-button, a new dialog appears to confirm that the user want to end the tracking.
+If the user confirms all the recorded data is uploaded to the server for processing, a upload-dialog is shown (see Figure~\ref{fig:app-first-prototype-upload}).
 After the uploading is finished the user is taken back to the list of available sessions.
 
 \begin{figure}[h]
@@ -53,24 +53,24 @@ After the uploading is finished the user is taken back to the list of available 
 \end{figure}
 
 \subsection*{Use of sensors}
-In addition to tracking Bluetooth-data the app also records data from the built-in accelerometer and gyroscope in the smartphone.
+In addition to tracking the Bluetooth-data the app also records data from the built-in accelerometer and gyroscope in the smartphone.
 The accelerometer was used to detect movement and create an estimate of how many steps the user takes during the tracking.
 This information was then used to determine if the smoke diver was walking around or standing still within a location.
 
 The gyroscope was used to collect information about the relative orientation of the smartphone. 
 The intention was to use this data to determine the orientation of the smoke diver within the building, but it turned out that different devices had different zero positioning.
-Therefore it was not possible to determine a consistent orientation across devices.
+Therefore, it was not possible to determine a consistent orientation across devices.
 Instead the difference of orientation over a time interval was used to determine if the user rotating the device, and thereby rotating their head as the device. 
 
 \section{Back-end}
 The back-end of the FireTracker system consists of two parts.
-A web-server that handles requests from the Android application and the exercise management tools and returns data to them
-A part that processes the raw data from the Android app and outputs data about the locations and movements of the firefighters that can be used by the exercise management tool to create a visualization.
+A web-server that handles requests from the Android application and the exercise management tool, and returns data to them
+An algorithm that processes the raw data from the Android app and outputs data about the locations and movements of the firefighters that can be used by the exercise management tool to create a visualization.
 In this iteration the web-server functionality was implemented together with a basic processing algorithm.
 
 \subsection{Web-server}
 The web-server handles HTTP requests from the other components of the FireTracker system and stores data it receives in a database. 
-It also fetches data from this database and return it to the Android app or the exercise management tool when they ask for data.
+It also fetches data from this database and returns it to the Android app or the exercise management tool when they ask for data.
 In this iteration a variety of endpoints were implemented allowing the creation of new sessions, retrieving a list of unprocessed or processed sessions, retrieving a single unprocessed or processed session, updating an unprocessed session, adding beacons and maps, retrieving a list of beacons, and retrieving a map. 
 An overview of all the endpoints is shown in Table~\ref{tab:endpoints-1}.
 
@@ -96,7 +96,7 @@ An overview of all the endpoints is shown in Table~\ref{tab:endpoints-1}.
 
 \subsection{Data processing}
 The data processing is executed when a session is updated with data from the tracking.
-The algorithm creates a list of locations which is positions of the smoke diver at a given time.
+The algorithm creates a list of locations which are positions of the smoke diver at a given time.
 The first location is the first data point in the list.
 Then the algorithm goes through all of the remaining data points and checks if the signal is from one of the beacons used in the session. 
 If the data point is from one of the associated beacons it checks if the signal is from the same beacon as the location it is currently working on.
@@ -107,11 +107,11 @@ The second location is at the position of the new beacon.
 
 \section{Data Specifications}
 \label{sec:data-specifications-1}
-As the three components of FireTracker was going to communicate and transfer data between them, a data specification was created.
+As the three components of FireTracker need to communicate and transfer data between them, a data specification was created.
 This specification was created using the JSON-standard, as the technologies used for all three components are able to create, send, receive, and use JSON-objects.
 
 \subsection{Session}
-The session-object is an object containing all the information about a single session.\
+The \textit{session-object} is an object containing all the information about a single session.\
 It has an unique ID, a name, the name of the smoke diver, the start and end time of the session, a list of data points, a list of beacons used in the session, a list of generated locations, a finished-flag, and the URL to the map used for this session. 
 The JSON-structure of a session, with the types of each field, is shown in Source~Code~\ref{listing:session-json-1}.
 
@@ -138,11 +138,11 @@ The JSON-structure of a session, with the types of each field, is shown in Sourc
 \label{listing:session-json-1}
 \end{listing}
 
-The finished-flag is a boolean value that is set to false when the session is created, and set to true when the Android app updates it with data from the tracking.
+The \textit{finished-flag} is a boolean value that is set to false when the session is created, and set to true when the Android app updates it with data from the tracking.
 This makes it possible to filter sessions on their finished-status so the Android app only lists sessions that have not already been used for tracking, and the exercise management tool only lists sessions that are finished and has a tracking.
 
 \subsection{Datapoint}
-A datapoint is a registration of a single signal from a BLE beacon.
+A \textit{datapoint} is a registration of a single signal from a BLE beacon.
 The JSON-structure of a datapoint, with the types of each field, is shown in Source~Code~\ref{listing:datapoint-json-1}.
 It contains an ID, the ID of the session it is associated with, the UUID, Major and Minor of the beacon emitting the signal, a time stamp, the received signal strength index(RSSI) of the signal, the number of steps taken, and rotation-values from the gyroscope.
 
@@ -200,7 +200,7 @@ The JSON representation of a beacon is shown in Source~Code~\ref{listing:beacon-
 \subsection{SessionBeacon}
 A SessionBeacon is a beacon that is used in a specific session.
 It has the same fields as a beacon described in the previous section with some more information added.
-The extra information is the ID of the session it belongs to, the x-coordinate it is located at in that session, and the y-coordinate it is located at in that session.
+The extra information is the ID of the session to which it belongs, the x-coordinate it is located at in that session, and the y-coordinate it is located at in that session.
 The JSON representation of a SessionBeacon is shown in Source~Code~\ref{listing:sessionbeacon-json-1}.
 
 \begin{listing}[h]
@@ -225,7 +225,7 @@ The JSON representation of a SessionBeacon is shown in Source~Code~\ref{listing:
 \end{listing}
 
 \subsection{Location}
-A location is a position of the user at a given time during the exercise.
+A \textit{location} is a position of the user at a given time during the exercise.
 It is created by the data processing algorithm.
 A location has an ID, the ID of the session it belongs to, an x-coordinate, an y-coordinate, a duration, a walking-flag, and a head movement-flag.
 The coordinates is the coordinates of the beacon this location is associated with.
@@ -252,7 +252,7 @@ The JSON representation of a Location is shown in Source~Code~\ref{listing:locat
 \end{listing}
 
 \section{Testing}
-This iteration concluded with a test of the prototype and interview with Øygarden Fire and Rescue.
+This iteration concluded with a test of the prototype and an interview with Øygarden Fire and Rescue.
 
 \subsection{Demonstration and testing}
 The test took place at Ågotnes fire station in the office section of the building.
@@ -267,7 +267,7 @@ A picture of him while creating the session is shown in Figure~\ref{fig:iteratio
 	\label{fig:iteration2-demo}
 \end{figure}
 
-When the session was created and all the beacons placed the fire chief started up the Android app and selected the session he created and started tracking.
+When the session was created and all the beacons were placed the fire chief started up the Android app and selected the session he created and started tracking.
 With the tracker active he walked slowly through the upper floor where all the beacons was placed.
 After he had finished walking through the building he ended the session and uploaded the data.
 The generated visualization was then showed to him.
@@ -285,15 +285,15 @@ The black dots are the visited locations, including the estimated midway points.
 The blue lines are the movements between locations.
 
 In this test five beacons were used. 
-Those beacons where borrowed from another project, as the beacons intended for this project was not available yet.
+The beacons were borrowed from another project, as the beacons intended for this project were not yet available.
 The borrowed beacons where two different models from Estimote.
-Three of them was placed in a straight hallway, one was placed in an office in the bottom right (on the figure) end of the hallway, and one was placed in a meeting room next to the end of the hallway.
-The tracking started in the upper end of the hallway, and he walked through the hallway, into the office, back to the hallway, and into the meeting room where the tracking ended.
+Three of them were placed in a straight hallway, one was placed in an office in the bottom right (on the figure) end of the hallway, and one was placed in a meeting room next to the end of the hallway.
+The tracking began in the upper end of the hallway, and he walked through the hallway, into the office, back to the hallway, and into the meeting room where the tracking ended.
 
 When he was testing the visualization in the exercise management tool the fire chief said that it felt very cluttered because of all the points and lines.
 He would have preferred to not have the estimated mid-points between two locations, and rather used more beacons with a shorter range.
-The reason for all the lines in the graph is probably both because the beacons used for this test were transmitting using different, and too strong signal strength, and because many of them were placed in the same room.
-Using beacons transmitting with a lower signal-strength, and therefore having a shorter range, would probably solve parts of this problem as well.
+The reason for all the lines in the graph is probably both because the beacons used for this test were transmitting using different, and too strong, signal strength, and because many of them were placed in the same room.
+Using beacons transmitting with a lower signal-strength, and therefore having a shorter range, would probably solve aspects of this problem as well.
 
 \subsection{Interview}
 After the test the fire chief was interviewed using a semi-structured interview.
@@ -303,74 +303,72 @@ The interview guide is included in Appendix~\ref{app:interview-guide-second}.
 The questions for the interview was divided into four categories: practical, user interface, visualization, and data.
 
 \subsubsection*{Practical}
-\begin{enumerate}
+\begin{itemize}
 	\item How was it to set up a session?
-
-		
-\end{enumerate}
+\end{itemize}
 
 \textbf{Summary of answer:}\\
-\textit{Question 1:}
+\textit{Setup:}
 It was easy both to understand and create a session. 
 It was really easy to take a picture of the map, upload it and place the beacons on the map.
 
 \subsubsection*{User Interface}
-\begin{enumerate}
+\begin{itemize}
 	\item Were there parts of the system that was difficult to understand or use?
 	\item Does the system (app+exercise management tool) give enough information on how to use it?
-\end{enumerate}
+\end{itemize}
 
 \textbf{Summary of answers:}\\
-\textit{Question 1:}
+\textit{Difficulty:}
 It was easy to use. 
-He got the first presentation of the system under an hour ago and has already created and used a session without problems.
+The fire chief got the first presentation of the system less than an hour before the setup and has already created and used a session without problems.
 
-\textit{Question 2:}
-There should be a user manual for the system that can be read before using the system. 
-And if that user manual explains the process simply and with pictures it should be no problem to use the system.
+\textit{Use Information:}
+The fire chief meant that there should be a user manual for the system that can be read before using the system. 
+If that user manual explains the process simply and with pictures it should be no problem to use the system.
 They would also prefer to have the system entirely in Norwegian. 
 
 \subsubsection*{Visualization}
-\begin{enumerate}
+\begin{itemize}
 	\item How was the navigation of the visualization?
 	\item Did you get enough information about the session?
 	\item Was there anything in the graph or map that was unclear?
 	\item What could the visualization in its current condition be used for?
-\end{enumerate}
+\end{itemize}
 
 \textbf{Summary of answers:}\\
-\textit{Question 1:}
-A bit challenging to begin with.
+\textit{Navigation:}
+Navigation was a bit challenging to begin with.
 It would have been easier if everything was onscreen at the same time to avoid having to scroll up and down.
 It looked okay on the PC, but on the iPad, which is what they are going to use, it was some scrolling.
 
-\textit{Question 2:}
-The duration of each location can together with their placement on the map be used to discuss why the smoke divers spent much or little time in different parts of the building.
+\textit{Enough Information:}
+The duration of each location, together with their placement on the map, can be used to discuss why the smoke divers spent much or little time in different parts of the building.
 
-\textit{Question 3:}
-It was very clear, except for the number of dots and lines in the graph, especially since he was the one to set up the session.
-It might be a bit harder for someone else to understand, because of all the dots and lines.
+\textit{Unclear:}
+The fire chief thought the map was very clear, except for the number of dots and lines in the graph.
+As he set up the session one could wonder if it might be a bit harder for someone else to understand, because of all the dots and lines.
 
-\textit{Question 4:}
+\textit{Visualization:}
 In the current state it would be hard to interpret and use the visualization because of the large number of points in the graph.
 
 
 \subsubsection*{Data}
-\begin{enumerate}
+\begin{itemize}
 	\item What do you think about using information on head movement to say something about how active a firefighter is?
 	\item We use step counter to see if a smoke diver moves inside the area of a beacon. Is this information interesting?
 	\begin{itemize}
 		\item Would it be interesting to show the number of steps or the distance?
 	\end{itemize}
-\end{enumerate}
+\end{itemize}
 
 \textbf{Summary of answers:}\\
-\textit{Question 1:}
-It could end up being too much data as the smoke divers use their bodies actively and are in constant movement.
-The most important and interesting information is the tracing of their location.
+\textit{Head Movement:}
+Using head movement to indicate activity could end up being too much data as the smoke divers use their bodies actively and are in constant movement.
+The fire chief meant that the most important and interesting information is the tracing of their location.
 
-\textit{Question 2:}
-It could be interesting to show the number of steps walked as the smoke divers are supposed to use their feet actively in the search, and this could be an indicator on how much they used their feet.
+\textit{Step Counter:}
+The fire chief thought that it could be interesting to show the number of steps walked as the smoke divers are supposed to use their feet actively in the search, and this could be an indicator on how much they used their feet.
 
 \subsection{Analysis of interview}
 It is clear that the fire department is interested in using a system such as FireTracker, and they think it could be a valuable form of feedback when evaluating smoke diving exercises.
@@ -381,5 +379,11 @@ Those should be removed to reduce the clutter.
 \section{Summary}
 This chapter has described the second iteration of the development process.
 In this iteration a working prototype of the system was developed, and tested together with Øygarden Fire and Rescue.
+The new requirements for the next iteration are:
+\begin{itemize}
+	\item Reduce information in the visualization
+	\item Use Norwegian everywhere in the system
+	\item Add safety features to prevent data loss
+\end{itemize}
 
 \end{document}
