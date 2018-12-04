@@ -6,15 +6,15 @@
 \begin{document}
 \chapter{Research methodology}
 \label{ch:research_methodology}
-This chapter describes the research methodology, methods, and frameworks used in this research that addresses the two questions established in Chapter~\ref{ch:reserch_questions}:
+This chapter describes the research methodology, methods, and frameworks used in this research that addresses the two questions presented in Chapter~\ref{ch:reserch_questions}:
 
 \begin{enumerate}
-	\item \textbf{How can BLE beacons be used to support firefighter movement tracking under smoke diving training?}
-	\item \textbf{Do the beacons provide good enough information for useful feedback?}
+	\item \textbf{How can indoor position data from BLE beacons be used to support firefighter movement tracking under smoke diving training?}
+	\item \textbf{Do the beacons provide high enough quality of data to be used for useful feedback?}
 \end{enumerate}
 
 \section{Design Science}
-Design Science is a research methodology that establishes and uses research when the goal is an artifact or a recommendation.
+This study is inspired by Design Science.
 Research based on design science can be performed in an organizational context or an academic environment \citep{lacerda2015design}.
 As the goal of this research is to create and evaluate an artifact, the design science methodology fits well.
 
@@ -25,8 +25,6 @@ This information is used to improve both the artifact itself and the design proc
 Design Science can be seen as a problem solving process.
 The foundation on which design science is based is that knowledge about, and understanding, of a design problem, and the solution to that problem, is something you achieve through the development and use of an artifact.
 Artifacts as a result of design science is according to \citet{March1995} \textit{constructs}, \textit{models}, \textit{methods}, and \textit{instantiations}.
-
-%\todo{Add more about how and why I use design science}
 
 \subsection{Artifacts}
 Within design science artifacts are created to address unsolved problems, and when they are evaluated by looking at the utility they provide in solving the problem.
@@ -65,6 +63,7 @@ The guidelines will be used throughout the process of this research to ensure th
 \label{tab:design-science-guidelines}
 \end{table}
 
+\newpage
 \section{Interaction Design Lifecycle}
 Figure~\ref{fig:method-diagram} illustrates the development process used in this research.
 This development process is a variation of the interaction design lifecycle.
@@ -135,7 +134,7 @@ In this research the goal is to create a High-fidelity prototype with tracking-f
 
 \section{Data Collection}
 Collecting data is an important part of the research process, and therefore choosing the right methods also important.
-This section presents the methods used in this project: observation, semi-structured interview, field-trial, technical testing, and questionnaire.
+This section presents the methods used in this project: observation, semi-structured interview, field-trial, technical testing, and SUS questionnaire.
 
 \subsection{Observation}
 Observation is a data gathering technique that can be used at any stage in the development process.
@@ -179,19 +178,19 @@ In field trials the researcher cannot control all variables in the same way as i
 Field trials will be used to test the final prototype during a smoke dive exercise.
 
 \subsection{System Usability Scale Questionnaire}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth]{../fig/sus-score}
-	\caption[SUS scores and how they can be interpreted]{SUS scores and how they can be interpreted \citep{Brooke2013}.}
-	\label{fig:sus-score}
-\end{figure}
-
 The System Usability Scale (SUS) is a scale used to quickly measure how people perceive the usability of a system they are working with \citep{Brooke2013}.
 It is a questionnaire with ten questions, five of them positively worded, and five negatively worded.
 This is done to avoid response biases \citep{Brooke2013}.
 
 The respondent answers each question on a five point scale from Strongly agree to Strongly disagree \citep{AssistantSecretaryforPublicAffairs2013}.
 The overall SUS score for the system is then calculated on a scale from 1 to 100, where a score between 68 and 100 is considered an acceptable or good usability score, as shown in Figure~\ref{fig:sus-score} \citep{AssistantSecretaryforPublicAffairs2013}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{../fig/sus-score}
+	\caption[SUS scores and how they can be interpreted]{SUS scores and how they can be interpreted \citep[p. 36]{Brooke2013}.}
+	\label{fig:sus-score}
+\end{figure}
 
 The System Usability Scale will be used to get feedback on the firefighter's perception on the final prototype.
 

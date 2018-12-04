@@ -7,14 +7,10 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
-%The organizations Uni Research Health, Centre for the Science of Learning \& Technology (SLATE), Western Norway University of Applied Sciences (HVL), ENOVATE AS and Øygarden Brann og Redning (Øygarden fire and rescue) are currently cooperating on the project ``Inquire Competence for Better Practice and Assessment'' (iComPAss).
-%This project does, among other things, study how one could use data driven decision-making to improve the training of firefighters.
-%As a part of that study they want to research how and if Bluetooth or similar technologies could be used to track the movements of firefighters when they exercise smoke diving.
-
-Today we have accurate systems for outdoor localization, positioning, and tracking using the Global Positioning System (GPS). 
-GPS is available almost everywhere, and because most smartphones have a GPS-antenna it is easy to use in applications.
-Unfortunately, GPS does not work well enough indoors to give precise locations.
-There are, however, several emerging technologies for indoor localization and tracking, such as light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, WIFI  \citep{chang2010robust}, and Bluetooth \citep{Takahashi2016}.
+Today we have accurate systems for outdoor localization, positioning, and tracking using the Global Navigation Satellite System (GNSS). 
+GNSS data are available almost everywhere, and because most smartphones have a GPS-antenna it is easy to use in applications.
+Unfortunately, GNSS does not work well enough indoors to give precise locations.
+There are, however, several emerging technologies for indoor localization and tracking, often referred to as Indoor Positioning System (IPS), such as light \citep{xiaohan2010improved}, sound \citep{schweinzer2010ultrasonic}, WIFI  \citep{chang2010robust}, and Bluetooth \citep{Takahashi2016}, and RFID \citep{rfid2017}.
 None of these systems are commonly available or in widespread use yet, however.
 
 One use-case where precise indoor tracking might be useful is for supporting firefighter smoke diving training. 
@@ -24,23 +20,28 @@ Smoke diving is also carried out according to competence-based practice, with st
 Yet, there are few tools that provide the divers with data on their performance.
 How can you get better at it and learn from your errors, if you think you searched all the rooms in the building, and no one is able to tell you that you missed a bedroom?
 Did you carry out the search optimally?
-Will visualizations of your movements support the instructor - trainee dialogue and feedback.
+Will visualizations of your movements support the instructor - trainee dialogue and feedback?
 
-To meet this need for information about firefighters movement and activity in a smoke filled building a system, FireTracker, for tracking firefighter movements during smoke dive training, was created using Bluetooth Low Energy (BLE) beacons and smartphones.
+To meet this need for information about firefighters movement and activity in a smoke filled building, a system, FireTracker, for tracking firefighter movements during smoke dive training, was created using Bluetooth Low Energy (BLE) beacons and smartphones.
 FireTracker tracks the firefighters and visualizes the data about their movements. 
 This visualization can be used in the debriefing and evaluation process after the training with their instructor.
 The instructor can also use the data across the teams to identify training needs.
 
 \section{Motivation}
 The motivation for doing this Masters project is that there is a clear need for a tool that provides smoke divers data-based feedback on their activities.
-We also want to explore the capabilities of, and learn about the BLE beacons and see how well they perform in an environment like this, which is almost unexplored when it regards use of Bluetooth technology. 
+We also want to learn about BLE beacons, explore the capabilities of, and see how well they perform in an environment for smoke dive training.
+The use of Bluetooth technology is almost unexplored within smoke diving practice.
 
 \section{iComPAss project}
 This research is part of the ``Inquire Competence for Better Practice and Assessment'' (iComPAss) project which is a cooperation between the organizations Uni Research Health\footnote{Uni Research merged with several other research institutes and changed name to NORCE Norwegian Research Centre AS}, Centre for the Science of Learning \& Technology (SLATE), Western Norway University of Applied Sciences (HVL), ENOVATE AS and Øygarden Brann og Redning\footnote{Changed name from Sotra Brannvern to Øygarden Brann og Redning after a organizational restructure as of January 2018} (Øygarden Fire and Rescue).
-The iComPAss project aims to develop an unique approach to planning and monitoring professional competence development, and it investigates how to support data-driven decision-making by individuals, instructors, and leadership \citep{Netteland2016}.
+The iComPAss project aims to develop an unique approach to planning and monitoring professional competence development, and it investigates how to support data-driven decision-making by individuals, instructors, and leadership, with digital tools. \citep{Netteland2016}.
 
-IComPAss presented several posters at the LASI-Nordic symposium in Copenhagen, Denmark in August 2018, including a poster for the work presented in this thesis \citep{Wake2018}. 
-The conference poster is included in Appendix~\ref{app:lasi-poster}.
+Some of the central research questions to iComPAss are:
+\begin{itemize}
+	\item What are the consequences of developing tools for practice and training at a fire station?
+	\item Can the proposed tools provide better overview of competency- and training needs than the current situation?
+	\item How can competency needs be visualized and give overview over individual and collective competency needs?
+\end{itemize}
 
 \section{Collaboration with co-student}
 While this research is conducted together with a co-student, Edvard Pires Bjørgen, what is reported in this thesis is my own individual work.
@@ -61,24 +62,22 @@ In this research the focus is on how well the Bluetooth Low Energy beacons perfo
 The goal is to answer the following two questions:
 
 \begin{enumerate}
-	\item \textbf{How can BLE beacons be used to support firefighter movement tracking under smoke diving training?}
-	\item \textbf{Do the beacons provide good enough information for useful feedback?}
+	\item \textbf{How can indoor position data from BLE beacons be used to support firefighter movement tracking under smoke diving training?}
+	\item \textbf{Do the beacons provide high enough quality of data to be used for useful feedback?}
 \end{enumerate}
 
 
 \section{Overview of thesis}
 This thesis is divided into ten chapters.
 The second chapter is an overview of relevant literature and theory.
-In the third chapter the research methodology is described.
-Chapter four is an overview of the technologies used in the project, and why they where chosen.
+Chapter three is an overview of the technologies used in the project, and why they where chosen.
+In the fourth chapter the research methodology is described.
 The fifth chapter describes the first iteration of the development where requirements are established.
 Chapter six is a description of the second iteration of the development, where the first prototype is developed and tested.
 In chapter seven the third iteration is described.
 Chapter eight is a description of the evaluation of the system.
 In chapter nine findings are discussed, and chapter ten is the conclusions.
 
-
-\blankpage
 
 \onlyinsubfile{\bibliographystyle{chicago}}
 \onlyinsubfile{\bibliography{../library}}
